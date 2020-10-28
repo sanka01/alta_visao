@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @usuario.nome %>
+</p>
+
+<p>
+  <strong>Rg:</strong>
+  <%= @usuario.rg %>
+</p>
+
+<p>
+  <strong>Cpf cnpj:</strong>
+  <%= @usuario.cpf_cnpj %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @usuario.email %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @usuario.endereco_id %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @usuario.telefone %>
+</p>
+
+<p>
+  <strong>Telefone 2:</strong>
+  <%= @usuario.telefone_2 %>
+</p>
+
+<p>
+  <strong>Cobranca:</strong>
+  <%= @usuario.cobranca %>
+</p>
+
+<p>
+  <strong>Tipo usuario:</strong>
+  <%= @usuario.tipo_usuario %>
+</p>
+
+<p>
+  <strong>Associado:</strong>
+  <%= @usuario.associado %>
+</p>
+
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
+<%= link_to 'Back', usuarios_path %>

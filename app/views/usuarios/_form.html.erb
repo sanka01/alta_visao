@@ -1,0 +1,98 @@
+<%= form_with(model: usuario, local: true) do |form| %>
+  <% if usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% usuario.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container-fluid">
+    <div class="row form-group">
+
+      <div class="field col-md-12">
+        <%= form.label :nome %>
+        <%= form.text_field :nome, :class => "form-control" %>
+      </div>
+
+    </div>
+    <div class="row form-group">
+
+      <div class="field col-md-6">
+        <%= form.label :rg %>
+        <%= form.text_field :rg, :class => "form-control" %>
+      </div>
+
+      <div class="field col-md-6">
+        <%= form.label :cpf_cnpj, "CPF/CNPJ" %>
+        <%= form.text_field :cpf_cnpj, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="row form-group">
+
+      <div class="field col-md-12">
+        <%= form.label :email, "E-mail" %>
+        <%= form.text_field :email, :class => "form-control" %>
+      </div>
+
+    </div>
+    <div class="row form-group">
+
+      <div class="field col-md-12">
+        <%= form.label :endereco_id, "Endereço" %>
+        <%= form.text_field :endereco_id, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="row form-group">
+
+      <div class="field col-md-6">
+        <%= form.label :telefone %>
+        <%= form.text_field :telefone, :class => "form-control" %>
+      </div>
+
+      <div class="field col-md-6">
+        <%= form.label :telefone_2 %>
+        <%= form.text_field :telefone_2, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="row form-group">
+
+      <div class="field col-md-6">
+        <%= form.label :cobranca, "Cobrança" %>
+        <%= form.text_field :cobranca, :class => "form-control" %>
+      </div>
+
+      <div class="field form-group col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="tipo_usuario"><%= :tipo_usuario %></label>
+          </div>
+          <select class="form-control" id="tipo_usuario">
+            <option value="<%=Usuario.tipo_usuarios["cliente"] %>">Cliente</option>
+            <option value="<%=Usuario.tipo_usuarios["empreendedor"] %>">Empreendedor</option>
+            <option value="<%=Usuario.tipo_usuarios["pre_cadastro"] %>">Pré-cadastro</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+    <div class="row form-group">
+
+      <div class="field col-md-6">
+        <%= form.label :indicacao, "ID da pessoa que o indicou" %>
+        <%= form.text_field :indicacao, :class => "form-control" %>
+      </div>
+      <div class="field col-md-6">
+        <%= form.label :associado %>
+        <%= form.check_box :associado %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= form.submit "Cadastrar", :class=> "btn btn-success" %>
+    </div>
+  </div>
+
+<% end %>
