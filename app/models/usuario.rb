@@ -5,4 +5,12 @@ class Usuario < ApplicationRecord
       cliente: 2,
       empreendedor: 3
   }
+  has_one :endereco
+  # has_one :indicacao, class_name: "indicacao"
+  has_one :cidade, through: :endereco
+  has_one :estado, through: :cidade
+  has_many :veiculos
+  def to_s
+    nome
+  end
 end

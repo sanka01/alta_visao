@@ -1,0 +1,45 @@
+<%= form_with(model: veiculo) do |form| %>
+  <% if veiculo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(veiculo.errors.count, "error") %> prohibited this veiculo from being saved:</h2>
+
+      <ul>
+        <% veiculo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container-fluid ">
+    <div class="row form-group">
+
+      <%= form.hidden_field :usuario_id, :value => @usuario.id %>
+      <h5>Veiculo de <%= @usuario %></h5>
+      <div class="field col-md-12">
+        <%= form.label :modelo %>
+        <%= form.text_field :modelo, :class => "form-control" %>
+      </div>
+      <div class="field col-md-12">
+        <%= form.label :ano %>
+        <%= form.text_field :ano, :class => "form-control" %>
+      </div>
+      <div class="field col-md-12">
+        <%= form.label :chassi %>
+        <%= form.text_field :chassi, :class => "form-control" %>
+      </div>
+      <div class="field col-md-12">
+        <%= form.label :renavan %>
+        <%= form.text_field :renavan, :class => "form-control" %>
+      </div>
+      <div class="field col-md-12">
+        <%= form.label :placa %>
+        <%= form.text_field :placa, :class => "form-control" %>
+      </div>
+
+    </div>
+    <div class="actions">
+      <%= form.submit "Cadastrar", :class => "btn btn-success" %>
+    </div>
+  </div>
+
+<% end %>

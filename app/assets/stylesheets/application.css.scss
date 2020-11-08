@@ -14,6 +14,332 @@
  *= require_self
  */
 
-.button{
-  color: #fff !important;
+.button {
+  color: gainsboro !important;
 }
+
+
+// sets gerais
+$black: #282828;
+$point: #CDC8BF;
+$point-light: lighten($point, 10%);
+$point-dark: darken($point, 10%);
+
+
+// sets cards
+$ratio: 1;
+$card_width: 70%;
+$card_height: $card_width * $ratio;
+$card_padding: 20px;
+$card-bgcolor: darken($point,20%);
+$card_margin: 5px;
+$card_round: 10px;
+$card-shadow: -20px -20px 0px 0px $point-light;
+
+$card-padding-basis: 15px;
+$card_head_padding: 0px 0px $card-padding-basis 0px;
+
+// sets table
+
+$gl-ms: "screen and (max-width: 23.5em)"; // up to 360px
+$gl-xs: "screen and (max-width: 35.5em)"; // up to 568px
+$gl-sm: "screen and (max-width: 48em)"; // max 768px
+$gl-md: "screen and (max-width: 64em)"; // max 1024px
+$gl-lg: "screen and (max-width: 80em)"; // max 1280px
+
+
+// table style
+
+table {
+  border-spacing: 1px;
+  border-collapse: collapse;
+  background: $point-light;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  * {
+    position: relative
+  }
+
+  td, th {
+    padding-left: 8px
+  }
+
+  thead tr {
+    height: 60px;
+    background: $point-dark;
+    font-size: 16px;
+  }
+
+  tbody tr {
+    height: 48px;
+    border-bottom: 1px solid #E3F1D5;
+
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  td, th {
+    text-align: left;
+
+    &.l {
+      text-align: right
+    }
+
+    &.c {
+      text-align: center
+    }
+
+    &.r {
+      text-align: center
+    }
+  }
+}
+
+
+@media #{$gl-xs}              {
+
+  table {
+    display: block;
+
+    > *, tr, td, th {
+      display: block
+    }
+
+    thead {
+      display: none
+    }
+
+    tbody tr {
+      height: auto;
+      padding: 8px 0;
+
+      td {
+        padding-left: 45%;
+        margin-bottom: 12px;
+
+        &:last-child {
+          margin-bottom: 0
+        }
+
+        &:before {
+          position: absolute;
+          font-weight: 700;
+          width: 40%;
+          left: 10px;
+          top: 0
+        }
+
+        &:nth-child(1):before {
+          content: "Code";
+        }
+
+        &:nth-child(2):before {
+          content: "Stock";
+        }
+
+        &:nth-child(3):before {
+          content: "Cap";
+        }
+
+        &:nth-child(4):before {
+          content: "Inch";
+        }
+
+        &:nth-child(5):before {
+          content: "Box Type";
+        }
+      }
+    }
+  }
+}
+
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: $point;
+}
+
+.container {
+  width: 80%;
+  //min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.card {
+  background-color: $card-bgcolor;
+  width: $card_width;
+  min-height: $card_height;
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: $card_padding;
+  margin: $card_margin;
+
+  -webkit-box-shadow: $card-shadow;
+
+  box-shadow: $card-shadow;
+  border-radius: $card_round;
+
+  -webkit-animation-name: shadow-show; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+  animation-name: shadow-show;
+  animation-duration: 1.5s;
+
+  -webkit-transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000);
+  -o-transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000);
+  transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000); /* custom */
+
+
+  h1, h2, h3, h4, h5 {
+    margin: 0px;
+    padding: $card_head_padding;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 30px;
+    color: $black;
+  }
+
+  hr {
+    display: block;
+    border: none;
+    height: 3px;
+    background-color: $point;
+    margin: 0px;
+
+    -webkit-animation-name: line-show; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 0.3s; /* Safari 4.0 - 8.0 */
+    animation-name: line-show;
+    animation-duration: 0.3s;
+    -webkit-transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000);
+    -o-transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000);
+    transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000); /* custom */
+  }
+
+  p {
+    margin: $card-padding-basis 0px 0px 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    letter-spacing: -0.25px;
+    line-height: 1.25;
+    font-size: 16px;
+    word-break: break-all;
+    word-wrap: pre-wrap;
+    color: $black;
+
+    -webkit-animation-name: p-show; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+    animation-name: p-show;
+    animation-duration: 1.5s;
+  }
+
+  button {
+    border: none;
+    background-color: $point;
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px 30px;
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-transform: uppercase;
+  }
+
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes line-show {
+  from {
+    margin: 0px 100px;
+  }
+  to {
+    margin: 0px;
+  }
+}
+
+/* Standard syntax */
+@keyframes line-show {
+  from {
+    margin: 0px 100px;
+  }
+  to {
+    margin: 0px;
+  }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes p-show {
+  from {
+    color: white;
+  }
+  to {
+    color: $black;
+  }
+}
+
+/* Standard syntax */
+@keyframes p-show {
+  from {
+    color: white;
+  }
+  to {
+    color: $black;
+  }
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes shadow-show {
+  from {
+    -webkit-box-shadow: 0px 0px 0px 0px #e0e0e0;
+    box-shadow: 0px 0px 0px 0px #e0e0e0;
+  }
+  to {
+    -webkit-box-shadow: $card-shadow;
+    box-shadow: $card-shadow;
+  }
+}
+
+/* Standard syntax */
+@keyframes shadow-show {
+  from {
+    -webkit-box-shadow: 0px 0px 0px 0px #e0e0e0;
+    box-shadow: 0px 0px 0px 0px #e0e0e0;
+  }
+  to {
+    -webkit-box-shadow: $card-shadow;
+    box-shadow: $card-shadow;
+  }
+}
+
+
+// Checkbox

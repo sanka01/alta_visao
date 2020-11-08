@@ -1,54 +1,99 @@
 <p id="notice"><%= notice %></p>
+<div class="container center">
+  <div class="card">
+    <div class="card-body">
 
-<p>
-  <strong>Nome:</strong>
-  <%= @usuario.nome %>
-</p>
+      <div class="col-md-12 ">
 
-<p>
-  <strong>Rg:</strong>
-  <%= @usuario.rg %>
-</p>
+        <h3 class="card-title">
+          <strong>Nome:</strong>
+          <%= @usuario.nome %>
+        </h3>
+      </div>
+      <div class="col-md-6">
 
-<p>
-  <strong>Cpf cnpj:</strong>
-  <%= @usuario.cpf_cnpj %>
-</p>
+        <p>
+          <strong>Rg:</strong>
+          <%= @usuario.rg %>
+        </p>
+      </div>
+      <div class="col-md-6">
 
-<p>
-  <strong>Email:</strong>
-  <%= @usuario.email %>
-</p>
+        <p>
+          <strong>Cpf cnpj:</strong>
+          <%= @usuario.cpf_cnpj %>
+        </p>
+      </div>
+      <div class="col-md-6">
 
-<p>
-  <strong>Endereco:</strong>
-  <%= @usuario.endereco_id %>
-</p>
+        <p>
+          <strong>Email:</strong>
+          <%= @usuario.email %>
+        </p>
+      </div>
+      <div class="col-md-6">
 
-<p>
-  <strong>Telefone:</strong>
-  <%= @usuario.telefone %>
-</p>
+        <p>
+          <strong>Telefone:</strong>
+          <%= @usuario.telefone %>
+        </p>
+      </div>
+      <div class="col-md-6">
 
-<p>
-  <strong>Telefone 2:</strong>
-  <%= @usuario.telefone_2 %>
-</p>
+        <p>
+          <strong>Telefone 2:</strong>
+          <%= @usuario.telefone_2 %>
+        </p>
+      </div>
+      <div class="col-md-6">
 
-<p>
-  <strong>Cobranca:</strong>
-  <%= @usuario.cobranca %>
-</p>
+        <p>
+          <strong>Cobranca:</strong>
+          <%= @usuario.cobranca %>
+        </p>
+      </div>
+      <div class="col-md-6">
 
-<p>
-  <strong>Tipo usuario:</strong>
-  <%= @usuario.tipo_usuario %>
-</p>
+        <p>
+          <strong>Tipo usuario:</strong>
+          <%= @usuario.tipo_usuario %>
+        </p>
+      </div>
+      <div class="col-md-6">
 
-<p>
-  <strong>Associado:</strong>
-  <%= @usuario.associado %>
-</p>
+        <p>
+          <strong>Associado:</strong>
+          <%= @usuario.associado ? "Sim" : "Não" %>
+        </p>
+      </div>
 
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+
+      <div class="col-md-6">
+
+        <p>
+          <strong>Endereco:</strong>
+          <%= @usuario.endereco %>
+        </p>
+      </div>
+
+
+      <div class="col-md-6">
+
+        <p>
+          <strong>Indicado por:</strong>
+          <%= Usuario.find(@usuario.indicacao) %>
+        </p>
+      </div>
+
+      <div class="col-md-12">
+        <%= link_to "Novo Veiculo", new_veiculo_path(@veiculo,id: @usuario.id), {:class => "btn btn-success"} %>
+
+        <%= link_to 'Edit', edit_usuario_path(@usuario), :class => "btn btn-info" %>
+        <%= link_to 'Back', usuarios_path, :class => "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% @usuario.veiculos.each do |veiculo| %>
+<%= render "veiculo", veiculo: veiculo %>
+<% end %>

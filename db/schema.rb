@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_220538) do
+ActiveRecord::Schema.define(version: 2020_11_03_195840) do
 
   create_table "cidades", force: :cascade do |t|
     t.string "nome"
     t.integer "estado_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["estado_id"], name: "index_cidades_on_estado_id"
   end
 
@@ -27,27 +29,16 @@ ActiveRecord::Schema.define(version: 2020_10_27_220538) do
     t.integer "cidade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "usuario_id"
+    t.string "complemento"
     t.index ["cidade_id"], name: "index_enderecos_on_cidade_id"
   end
 
-  create_table "estado", force: :cascade do |t|
+  create_table "estados", force: :cascade do |t|
     t.string "nome"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "nome"
-    t.string "rg"
-    t.string "cpf_cnpj"
-    t.string "email"
-    t.integer "endereco_id"
-    t.string "telefone"
-    t.string "telefone_2"
-    t.integer "cobranca"
-    t.integer "tipo_usuario"
-    t.boolean "associado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "indicacao"
+    t.string "sigla"
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -63,6 +54,18 @@ ActiveRecord::Schema.define(version: 2020_10_27_220538) do
     t.boolean "associado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "indicacao"
+  end
+
+  create_table "veiculos", force: :cascade do |t|
+    t.string "placa"
+    t.string "chassi"
+    t.integer "renavan"
+    t.string "ano"
+    t.string "modelo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "usuario_id"
   end
 
 end

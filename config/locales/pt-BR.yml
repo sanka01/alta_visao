@@ -1,4 +1,7 @@
 pt-BR:
+
+  usuario:
+    indicacao: "Indicação"
   # formatos de data e hora
   date:
     formats:

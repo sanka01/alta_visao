@@ -1,4 +1,4 @@
-<%= form_with(model: usuario, local: true) do |form| %>
+<%= form_with(model: usuario) do |form| %>
   <% if usuario.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <div class="container-fluid">
+  <div class="container-fluid ">
     <div class="row form-group">
 
       <div class="field col-md-12">
@@ -41,53 +41,81 @@
     </div>
     <div class="row form-group">
 
-      <div class="field col-md-12">
-        <%= form.label :endereco_id, "Endereço" %>
-        <%= form.text_field :endereco_id, :class => "form-control" %>
+      <div class="col-md-6 ">
+        <%= form.label :cep, "CEP" %>
+        <%= form.text_field :cep, :class => "form-control" %>
       </div>
-    </div>
-    <div class="row form-group">
+
+      <div class="col-md-6">
+        <%=form.label :logradouro %>
+        <%=form.text_field :logradouro, :class => "form-control" %>
+
+      </div>
+      <div class="col-md-6">
+        <%=form.label :bairro %>
+        <%=form.text_field :bairro, :class => "form-control" %>
+
+      </div>
+
+      <div class="col-md-6">
+        <%=form.label :numero %>
+        <%=form.text_field :numero, :class => "form-control" %>
+
+      </div>
+      <div class="col-md-6">
+        <%=form.label :complemento %>
+        <%=form.text_field :complemento, :class => "form-control" %>
+
+      </div>
+      <div class="col-md-6">
+        <%=form.label :cidade %>
+        <%=form.text_field :cidade, :class => "form-control" %>
+
+      </div>
+      <div class="col-md-6">
+        <label for="uf">Estado</label>
+        <%=form.select(:estado, Estado.all.collect {|p| [ p.nome, p.sigla ] },{}, {:class => "form-control"})%>
+
+      </div>
 
       <div class="field col-md-6">
         <%= form.label :telefone %>
         <%= form.text_field :telefone, :class => "form-control" %>
       </div>
+    </div>
+
+    <div class="row form-group">
+
 
       <div class="field col-md-6">
         <%= form.label :telefone_2 %>
         <%= form.text_field :telefone_2, :class => "form-control" %>
       </div>
-    </div>
-    <div class="row form-group">
 
-      <div class="field col-md-6">
-        <%= form.label :cobranca, "Cobrança" %>
-        <%= form.text_field :cobranca, :class => "form-control" %>
-      </div>
 
       <div class="field form-group col-md-6">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="tipo_usuario"><%= :tipo_usuario %></label>
-          </div>
-          <select class="form-control" id="tipo_usuario">
-            <option value="<%=Usuario.tipo_usuarios["cliente"] %>">Cliente</option>
-            <option value="<%=Usuario.tipo_usuarios["empreendedor"] %>">Empreendedor</option>
-            <option value="<%=Usuario.tipo_usuarios["pre_cadastro"] %>">Pré-cadastro</option>
-          </select>
-        </div>
-
+        <label class="input-group-text" for="tipo_usuario"><%= :tipo_usuario %></label>
+        <%=form.select(:tipo_usuario, Usuario.tipo_usuarios.map{|t,k| t if k > 0}, {}, {:class => "form-control"})%>
       </div>
     </div>
+<!--    <div class="row form-group">-->
+
+<!--      <div class="field col-md-6">-->
+        <%#= form.label :cobranca, "Cobrança" %>
+        <%#= form.text_field :cobranca, :class => "form-control" %>
+<!--      </div>-->
+
+<!--    </div>-->
     <div class="row form-group">
 
       <div class="field col-md-6">
         <%= form.label :indicacao, "ID da pessoa que o indicou" %>
         <%= form.text_field :indicacao, :class => "form-control" %>
       </div>
-      <div class="field col-md-6">
+      <div class="form-check col-md-6">
         <%= form.label :associado %>
-        <%= form.check_box :associado %>
+        <%= form.check_box :associado, :class => "form-check-input" %>
+
       </div>
     </div>
     <div class="actions">

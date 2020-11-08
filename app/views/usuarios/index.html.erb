@@ -2,16 +2,17 @@
 
 <h1>Usuarios</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Nome</th>
-      <th>Rg</th>
-      <th>Cpf cnpj</th>
-      <th>Email</th>
-      <th>Endereco</th>
-      <th>Telefone</th>
-      <th>Telefone 2</th>
+<!--      <th>Rg</th>-->
+<!--      <th>Cpf cnpj</th>-->
+<!--      <th>Email</th>-->
+<!--      <th>Endereco</th>-->
+<!--      <th>Telefone</th>-->
+<!--      <th>Telefone 2</th>-->
       <th>Cobranca</th>
       <th>Tipo usuario</th>
       <th>Associado</th>
@@ -22,16 +23,17 @@
   <tbody>
     <% @usuarios.each do |usuario| %>
       <tr>
+        <td><%= usuario.id %></td>
         <td><%= usuario.nome %></td>
-        <td><%= usuario.rg %></td>
-        <td><%= usuario.cpf_cnpj %></td>
-        <td><%= usuario.email %></td>
-        <td><%= usuario.endereco_id %></td>
-        <td><%= usuario.telefone %></td>
-        <td><%= usuario.telefone_2 %></td>
+<!--        <td><%#= usuario.rg %></td>-->
+<!--        <td><%#= usuario.cpf_cnpj %></td>-->
+<!--        <td><%#= usuario.email %></td>-->
+<!--        <td><%#= usuario.endereco_id %></td>-->
+<!--        <td><%#= usuario.telefone %></td>-->
+<!--        <td><%#= usuario.telefone_2 %></td>-->
         <td><%= usuario.cobranca %></td>
         <td><%= usuario.tipo_usuario %></td>
-        <td><%= usuario.associado %></td>
+        <td><%= usuario.associado ? "Sim" : "Não" %></td>
         <td><%= link_to 'Show', usuario %></td>
         <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
         <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
