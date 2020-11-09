@@ -81,12 +81,19 @@
 
         <p>
           <strong>Indicado por:</strong>
-          <%= Usuario.find(@usuario.indicacao) %>
+          <%=  Usuario.find(@usuario.indicacao) if @usuario.indicacao != nil %>
+        </p>
+      </div>
+      <div class="col-md-6">
+
+        <p>
+          <strong>Grupo:</strong>
+          <%=  Usuario.find(@usuario.grupo) if @usuario.grupo != nil %>
         </p>
       </div>
 
       <div class="col-md-12">
-        <%= link_to "Novo Veiculo", new_veiculo_path(@veiculo,id: @usuario.id), {:class => "btn btn-success"} %>
+        <%= link_to "Novo Veiculo", new_veiculo_path(@veiculo, id: @usuario.id), {:class => "btn btn-success"} %>
 
         <%= link_to 'Edit', edit_usuario_path(@usuario), :class => "btn btn-info" %>
         <%= link_to 'Back', usuarios_path, :class => "btn btn-info" %>
@@ -95,5 +102,5 @@
   </div>
 </div>
 <% @usuario.veiculos.each do |veiculo| %>
-<%= render "veiculo", veiculo: veiculo %>
+  <%= render "veiculo", veiculo: veiculo %>
 <% end %>

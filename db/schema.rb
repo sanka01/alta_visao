@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_195840) do
+ActiveRecord::Schema.define(version: 2020_11_09_001150) do
 
   create_table "cidades", force: :cascade do |t|
     t.string "nome"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_11_03_195840) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "indicacao"
+    t.integer "grupo"
   end
 
   create_table "veiculos", force: :cascade do |t|

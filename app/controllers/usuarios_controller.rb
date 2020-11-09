@@ -34,6 +34,10 @@ class UsuariosController < ApplicationController
     isAllSave = false
     @usuario = Usuario.new(usuario_params)
     @usuario.cobranca = @usuario.associado ? 189 : 63
+    if @usuario.indicacao != nil
+      u = Usuario.find(@usuario.indicacao)
+      @usuario.grupo = u.grupo == nil ? u.id : u.grupo
+    end
     endereco = Endereco.new
     endereco.cep = params[:usuario][:cep]
     endereco.logradouro = params[:usuario][:logradouro]
