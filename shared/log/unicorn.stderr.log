@@ -1,0 +1,22 @@
+I, [2020-11-11T00:59:40.597706 #11019]  INFO -- : Refreshing Gem list
+I, [2020-11-11T00:59:42.454510 #11019]  INFO -- : listening on addr=/home/ubuntu/alta_visao/shared/sockets/unicorn.sock fd=9
+I, [2020-11-11T00:59:42.455557 #11019]  INFO -- : worker=0 spawning...
+I, [2020-11-11T00:59:42.457189 #11019]  INFO -- : worker=1 spawning...
+I, [2020-11-11T00:59:42.458050 #11019]  INFO -- : master process ready
+I, [2020-11-11T00:59:42.472371 #11021]  INFO -- : worker=0 spawned pid=11021
+I, [2020-11-11T00:59:42.472499 #11021]  INFO -- : worker=0 ready
+I, [2020-11-11T00:59:42.473171 #11022]  INFO -- : worker=1 spawned pid=11022
+I, [2020-11-11T00:59:42.473278 #11022]  INFO -- : worker=1 ready
+I, [2020-11-11T01:35:26.622165 #11019]  INFO -- : reaped #<Process::Status: pid 11021 exit 0> worker=0
+I, [2020-11-11T01:35:26.628792 #11019]  INFO -- : reaped #<Process::Status: pid 11022 exit 0> worker=1
+I, [2020-11-11T01:35:26.628880 #11019]  INFO -- : master complete
+I, [2020-11-11T01:36:19.950934 #795]  INFO -- : Refreshing Gem list
+I, [2020-11-11T01:36:22.950719 #795]  INFO -- : unlinking existing socket=/home/ubuntu/alta_visao/shared/sockets/unicorn.sock
+I, [2020-11-11T01:36:22.950873 #795]  INFO -- : listening on addr=/home/ubuntu/alta_visao/shared/sockets/unicorn.sock fd=9
+I, [2020-11-11T01:36:22.951873 #795]  INFO -- : worker=0 spawning...
+I, [2020-11-11T01:36:22.953073 #795]  INFO -- : worker=1 spawning...
+I, [2020-11-11T01:36:22.953905 #795]  INFO -- : master process ready
+I, [2020-11-11T01:36:22.969215 #813]  INFO -- : worker=1 spawned pid=813
+I, [2020-11-11T01:36:22.969343 #813]  INFO -- : worker=1 ready
+I, [2020-11-11T01:36:22.970050 #812]  INFO -- : worker=0 spawned pid=812
+I, [2020-11-11T01:36:22.970156 #812]  INFO -- : worker=0 ready
