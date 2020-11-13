@@ -5,7 +5,7 @@ class CreateEndereco < ActiveRecord::Migration[5.2]
       t.string :bairro
       t.string :logradouro
       t.string :cep
-      t.references :cidade, foreign_key: true
+#      t.references :cidade, foreign_key: true
       t.timestamps
 
     end

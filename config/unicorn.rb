@@ -7,7 +7,9 @@ worker_processes 2
 preload_app true
 timeout 30
 # Set up socket location
-listen "#{shared_dir}/sockets/unicorn.sock", :backlog => 64
+listen "#{shared_dir}/sockets/unicorn.sock", :backlog => 768
+#listen "/tmp/unicorn.sock", :backlog => 768
+#listen 3000
 # Logging
 stderr_path "#{shared_dir}/log/unicorn.stderr.log"
 stdout_path "#{shared_dir}/log/unicorn.stdout.log"
