@@ -1,4 +1,7 @@
 class Usuario < ApplicationRecord
+
+  # has_secure_password
+
   enum tipo_usuario: {
       administrator: 0,
       pre_cadastro: 1,

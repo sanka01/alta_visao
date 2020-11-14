@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_195840) do
+ActiveRecord::Schema.define(version: 2020_11_14_013900) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cidades", force: :cascade do |t|
     t.string "nome"
-    t.integer "estado_id"
+    t.bigint "estado_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["estado_id"], name: "index_cidades_on_estado_id"
@@ -25,12 +33,11 @@ ActiveRecord::Schema.define(version: 2020_11_03_195840) do
     t.string "bairro"
     t.string "logradouro"
     t.string "cep"
-    t.integer "cidade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "usuario_id"
     t.string "complemento"
-    t.index ["cidade_id"], name: "index_enderecos_on_cidade_id"
+    t.integer "cidade_id"
   end
 
   create_table "estados", force: :cascade do |t|
@@ -54,6 +61,8 @@ ActiveRecord::Schema.define(version: 2020_11_03_195840) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "indicacao"
+    t.integer "grupo"
+    t.string "password_digest"
   end
 
   create_table "veiculos", force: :cascade do |t|
@@ -67,4 +76,8 @@ ActiveRecord::Schema.define(version: 2020_11_03_195840) do
     t.integer "usuario_id"
   end
 
+  add_foreign_key "cidades", "estados"
+  add_foreign_key "enderecos", "cidades"
+  add_foreign_key "enderecos", "usuarios"
+  add_foreign_key "veiculos", "usuarios"
 end

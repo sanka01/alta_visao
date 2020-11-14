@@ -67,3 +67,5 @@ gem 'correios-cep'
 
 gem 'unicorn'
 gem 'pg'
+# gem 'bcrypt'
+

@@ -9,6 +9,8 @@ default: &default
   pool: 5
   timeout: 5000
   encoding: unicode
+  username: sanka
+  password: 0
 
 development:
   <<: *default
@@ -25,5 +27,4 @@ production:
   <<: *default
   host: localhost
   database: production_alta_visao
-  username: alta_visao
-  password: monitoramento
+
