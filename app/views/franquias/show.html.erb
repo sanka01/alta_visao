@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @franquia.nome %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @franquia.usuario %>
+</p>
+
+<%= link_to 'Edit', edit_franquia_path(@franquia) %> |
+<%= link_to 'Back', franquias_path %>

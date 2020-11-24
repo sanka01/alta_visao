@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  usuario: one
+  endereco: one
+  franquia: one
+
+two:
+  nome: MyString
+  usuario: two
+  endereco: two
+  franquia: two

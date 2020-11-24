@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Instalacoes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Veiculo</th>
+      <th>Oficina</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instalacoes.each do |instalacao| %>
+      <tr>
+        <td><%= instalacao.veiculo %></td>
+        <td><%= instalacao.oficina %></td>
+        <td><%= link_to 'Show', instalacao %></td>
+        <td><%= link_to 'Edit', edit_instalacao_path(instalacao) %></td>
+        <td><%= link_to 'Destroy', instalacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Instalacao', new_instalacao_path %>

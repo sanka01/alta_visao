@@ -1,0 +1,27 @@
+<%= form_with(model: instalacao, local: true) do |form| %>
+  <% if instalacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(instalacao.errors.count, "error") %> prohibited this instalacao from being saved:</h2>
+
+      <ul>
+      <% instalacao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :veiculo_id %>
+    <%= form.text_field :veiculo_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :oficina_id %>
+    <%= form.text_field :oficina_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

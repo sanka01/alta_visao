@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Veiculo:</strong>
+  <%= @instalacao.veiculo %>
+</p>
+
+<p>
+  <strong>Oficina:</strong>
+  <%= @instalacao.oficina %>
+</p>
+
+<%= link_to 'Edit', edit_instalacao_path(@instalacao) %> |
+<%= link_to 'Back', instalacoes_path %>

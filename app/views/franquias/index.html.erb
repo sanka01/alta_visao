@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Franquias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Usuario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @franquias.each do |franquia| %>
+      <tr>
+        <td><%= franquia.nome %></td>
+        <td><%= franquia.usuario %></td>
+        <td><%= link_to 'Show', franquia %></td>
+        <td><%= link_to 'Edit', edit_franquia_path(franquia) %></td>
+        <td><%= link_to 'Destroy', franquia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Franquia', new_franquia_path %>
