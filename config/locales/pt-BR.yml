@@ -1,7 +1,12 @@
 pt-BR:
 
+  show: "Informações"
+  back: "Voltar"
+  edit: "Editar"
+  destroy: "Deletar"
   usuario:
     indicacao: "Indicação"
+    cpf_cnpj: "CPF/CNPJ"
   # formatos de data e hora
   date:
     formats:

@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+<div class="container center">
+  <div class="card">
+    <div class="card-body">
+
+      <div class="col-md-12 ">
+
+        <h3 class="card-title">
+          <strong>modelo:</strong>
+          <%= @veiculo.modelo %>
+        </h3>
+      </div>
+      <div class="col-md-6">
+
+        <p>
+          <strong>placa:</strong>
+          <%= @veiculo.placa %>
+        </p>
+      </div>
+      <div class="col-md-6">
+
+        <p>
+          <strong>chassi:</strong>
+          <%= @veiculo.chassi %>
+        </p>
+      </div>
+      <div class="col-md-6">
+
+        <p>
+          <strong>Renavan:</strong>
+          <%= @veiculo.renavan %>
+        </p>
+      </div>
+      <div class="col-md-6">
+
+        <p>
+          <strong>ano:</strong>
+          <%= @veiculo.ano %>
+        </p>
+      </div>
+      <div class="col-md-6">
+
+        <p>
+          <strong>Mensalidade:</strong>
+          <%= @veiculo.mensalidade %>
+        </p>
+      </div>
+
+      <div class="col-md-12">
+        <%= link_to 'Editar', edit_veiculo_path(@veiculo), :class => "btn btn-info" %>
+        <%= link_to 'Voltar', usuario_path(@veiculo.usuario), :class => "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -34,9 +34,9 @@
         <td><%= usuario.cobranca %></td>
         <td><%= usuario.tipo_usuario %></td>
         <td><%= usuario.associado ? "Sim" : "Não" %></td>
-        <td><%= link_to 'Show', usuario %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t(:show), usuario %></td>
+        <td><%= link_to t(:edit), edit_usuario_path(usuario) %></td>
+        <td><%= link_to t(:destroy), usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

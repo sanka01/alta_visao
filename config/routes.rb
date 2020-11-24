@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :instalacoes
+  resources :oficinas
+  resources :franquias
   resources :applications
   resources :usuarios do
   end

@@ -5,7 +5,6 @@ class UsuariosController < ApplicationController
   def consulta_endereco
     finder = Correios::CEP::AddressFinder.new
     address = finder.get(params[:cep])
-    debug
   end
 
   # GET /usuarios
@@ -49,20 +48,18 @@ class UsuariosController < ApplicationController
     cidade.estado = estado
     endereco.usuario = @usuario
     Usuario.transaction do
-      cidade.save
+      isAllSave = @usuario.save
+      isAllSave = isAllSave ? cidade.save : false
       endereco.cidade = cidade
-      endereco.save
-      @usuario.save
-      isAllSave = true
+      isAllSave = isAllSave ? endereco.save : false
     end
-
     respond_to do |format|
       if isAllSave
         format.html { redirect_to @usuario, notice: 'Usuario was successfully created.' }
         format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new }
-        format.json { render json: @usuario.errors, status: :unprocessable_entity }
+        format.json { render :json => @usuario.errors,:json => endereco.errors, status: :unprocessable_entity }
       end
     end
   end

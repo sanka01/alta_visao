@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_013900) do
+ActiveRecord::Schema.define(version: 2020_11_24_012425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2020_11_14_013900) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["estado_id"], name: "index_cidades_on_estado_id"
+  end
+
+  create_table "contas", force: :cascade do |t|
+    t.string "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.integer "usuario_id"
   end
 
   create_table "enderecos", force: :cascade do |t|
@@ -47,6 +55,45 @@ ActiveRecord::Schema.define(version: 2020_11_14_013900) do
     t.string "sigla"
   end
 
+  create_table "franquias", force: :cascade do |t|
+    t.string "nome"
+    t.bigint "usuario_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["usuario_id"], name: "index_franquias_on_usuario_id"
+  end
+
+  create_table "instalacoes", force: :cascade do |t|
+    t.bigint "veiculo_id"
+    t.bigint "oficina_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["oficina_id"], name: "index_instalacoes_on_oficina_id"
+    t.index ["veiculo_id"], name: "index_instalacoes_on_veiculo_id"
+  end
+
+  create_table "oficinas", force: :cascade do |t|
+    t.string "nome"
+    t.bigint "usuario_id"
+    t.bigint "endereco_id"
+    t.bigint "franquia_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["endereco_id"], name: "index_oficinas_on_endereco_id"
+    t.index ["franquia_id"], name: "index_oficinas_on_franquia_id"
+    t.index ["usuario_id"], name: "index_oficinas_on_usuario_id"
+  end
+
+  create_table "useres", force: :cascade do |t|
+    t.string "login"
+    t.bigint "usuario_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.index ["login"], name: "index_useres_on_login"
+    t.index ["usuario_id"], name: "index_useres_on_usuario_id"
+  end
+
   create_table "usuarios", force: :cascade do |t|
     t.string "nome"
     t.string "rg"
@@ -61,8 +108,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_013900) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "indicacao"
-    t.integer "grupo"
-    t.string "password_digest"
+    t.integer "franquia_id"
   end
 
   create_table "veiculos", force: :cascade do |t|
@@ -74,10 +120,23 @@ ActiveRecord::Schema.define(version: 2020_11_14_013900) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "usuario_id"
+    t.integer "oficina_id"
+    t.float "valor_instalacao"
+    t.float "mensalidade"
   end
 
   add_foreign_key "cidades", "estados"
+  add_foreign_key "contas", "usuarios"
   add_foreign_key "enderecos", "cidades"
   add_foreign_key "enderecos", "usuarios"
+  add_foreign_key "franquias", "usuarios"
+  add_foreign_key "instalacoes", "oficinas"
+  add_foreign_key "instalacoes", "veiculos"
+  add_foreign_key "oficinas", "enderecos"
+  add_foreign_key "oficinas", "franquias"
+  add_foreign_key "oficinas", "usuarios"
+  add_foreign_key "useres", "usuarios"
+  add_foreign_key "usuarios", "franquias"
+  add_foreign_key "veiculos", "oficinas"
   add_foreign_key "veiculos", "usuarios"
 end
