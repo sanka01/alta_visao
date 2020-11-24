@@ -1,0 +1,38 @@
+/var/lib/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/type.rb:27: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/type/adapter_specific_registry.rb:9: warning: The called method `add_modifier' is defined here
+/var/lib/gems/2.7.0/gems/activemodel-5.2.4.4/lib/active_model/type/integer.rb:13: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/activemodel-5.2.4.4/lib/active_model/type/value.rb:8: warning: The called method `initialize' is defined here
+/var/lib/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/connection_adapters/postgresql/oid/specialized_string.rb:12: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/activemodel-5.2.4.4/lib/active_model/type/value.rb:8: warning: The called method `initialize' is defined here
+rails aborted!
+ActiveRecord::ProtectedEnvironmentError: You are attempting to run a destructive action against your 'production' database.
+If you are sure you want to continue, run the same command with the environment variable:
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+/var/lib/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/tasks/database_tasks.rb:61:in `check_protected_environments!'
+/var/lib/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/railties/databases.rake:13:in `block (2 levels) in <main>'
+/var/lib/gems/2.7.0/gems/railties-5.2.4.4/lib/rails/commands/rake/rake_command.rb:23:in `block in perform'
+/var/lib/gems/2.7.0/gems/railties-5.2.4.4/lib/rails/commands/rake/rake_command.rb:20:in `perform'
+/var/lib/gems/2.7.0/gems/railties-5.2.4.4/lib/rails/command.rb:48:in `invoke'
+/var/lib/gems/2.7.0/gems/railties-5.2.4.4/lib/rails/commands.rb:18:in `<main>'
+/var/lib/gems/2.7.0/gems/bootsnap-1.4.8/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `require'
+/var/lib/gems/2.7.0/gems/bootsnap-1.4.8/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:23:in `block in require_with_bootsnap_lfi'
+/var/lib/gems/2.7.0/gems/bootsnap-1.4.8/lib/bootsnap/load_path_cache/loaded_features_index.rb:92:in `register'
+/var/lib/gems/2.7.0/gems/bootsnap-1.4.8/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:22:in `require_with_bootsnap_lfi'
+/var/lib/gems/2.7.0/gems/bootsnap-1.4.8/lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:31:in `require'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.4.4/lib/active_support/dependencies.rb:291:in `block in require'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.4.4/lib/active_support/dependencies.rb:257:in `load_dependency'
+/var/lib/gems/2.7.0/gems/activesupport-5.2.4.4/lib/active_support/dependencies.rb:291:in `require'
+/home/ubuntu/alta_visao/bin/rails:9:in `<top (required)>'
+/var/lib/gems/2.7.0/gems/spring-2.1.1/lib/spring/client/rails.rb:28:in `load'
+/var/lib/gems/2.7.0/gems/spring-2.1.1/lib/spring/client/rails.rb:28:in `call'
+/var/lib/gems/2.7.0/gems/spring-2.1.1/lib/spring/client/command.rb:7:in `call'
+/var/lib/gems/2.7.0/gems/spring-2.1.1/lib/spring/client.rb:30:in `run'
+/var/lib/gems/2.7.0/gems/spring-2.1.1/bin/spring:49:in `<top (required)>'
+/var/lib/gems/2.7.0/gems/spring-2.1.1/lib/spring/binstub.rb:11:in `load'
+/var/lib/gems/2.7.0/gems/spring-2.1.1/lib/spring/binstub.rb:11:in `<top (required)>'
+/home/ubuntu/alta_visao/bin/spring:15:in `require'
+/home/ubuntu/alta_visao/bin/spring:15:in `<top (required)>'
+bin/rails:3:in `load'
+bin/rails:3:in `<main>'
+Tasks: TOP => db:reset => db:drop => db:check_protected_environments
+(See full trace by running task with --trace)

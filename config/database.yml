@@ -27,4 +27,5 @@ production:
   <<: *default
   host: localhost
   database: production_alta_visao
-
+  username: alta_visao
+  password: monitoramento
