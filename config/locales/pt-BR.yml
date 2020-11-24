@@ -4,6 +4,7 @@ pt-BR:
   back: "Voltar"
   edit: "Editar"
   destroy: "Deletar"
+  confirm_delete: "Você tem certeza q deseja deletar?"
   usuario:
     indicacao: "Indicação"
     cpf_cnpj: "CPF/CNPJ"

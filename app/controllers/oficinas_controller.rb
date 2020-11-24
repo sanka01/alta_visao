@@ -25,14 +25,28 @@ class OficinasController < ApplicationController
   # POST /oficinas.json
   def create
     @oficina = Oficina.new(oficina_params)
-
-    respond_to do |format|
-      if @oficina.save
-        format.html { redirect_to @oficina, notice: 'Oficina was successfully created.' }
-        format.json { render :show, status: :created, location: @oficina }
-      else
-        format.html { render :new }
-        format.json { render json: @oficina.errors, status: :unprocessable_entity }
+    endereco = Endereco.new
+    endereco.cep = params[:oficina][:cep]
+    endereco.logradouro = params[:oficina][:logradouro]
+    endereco.bairro = params[:oficina][:bairro]
+    endereco.lote = params[:oficina][:numero]
+    endereco.complemento = params[:oficina][:complemento]
+    cidade = Cidade.find_by_nome(params[:oficina][:cidade]) ? Cidade.find_by_nome(params[:oficina][:cidade]) : Cidade.new(nome: params[:oficina][:cidade])
+    estado = Estado.find_by_sigla params[:oficina][:estado]
+    cidade.estado = estado
+    endereco.usuario = @oficina.usuario
+    cidade.save
+    endereco.cidade = cidade
+    if endereco.save!
+      @oficina.endereco = endereco
+      respond_to do |format|
+        if @oficina.save
+          format.html { redirect_to @oficina, notice: 'Oficina foi criada com sucesso.' }
+          format.json { render :show, status: :created, location: @oficina }
+        else
+          format.html { render :new }
+          format.json { render json: @oficina.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -42,7 +56,7 @@ class OficinasController < ApplicationController
   def update
     respond_to do |format|
       if @oficina.update(oficina_params)
-        format.html { redirect_to @oficina, notice: 'Oficina was successfully updated.' }
+        format.html { redirect_to @oficina, notice: 'Oficina foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @oficina }
       else
         format.html { render :edit }
@@ -56,19 +70,20 @@ class OficinasController < ApplicationController
   def destroy
     @oficina.destroy
     respond_to do |format|
-      format.html { redirect_to oficinas_url, notice: 'Oficina was successfully destroyed.' }
+      format.html { redirect_to oficinas_url, notice: 'Oficina foi deletada com sucesso.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_oficina
-      @oficina = Oficina.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def oficina_params
-      params.require(:oficina).permit(:nome, :usuario_id, :endereco_id, :franquia_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_oficina
+    @oficina = Oficina.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def oficina_params
+    params.require(:oficina).permit(:nome, :usuario_id)
+  end
 end

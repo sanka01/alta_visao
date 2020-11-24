@@ -14,16 +14,19 @@
  *= require_self
  */
 
-.button {
-  color: gainsboro !important;
-}
+
 
 
 // sets gerais
 $black: #282828;
-$point: #CDC8BF;
+$white: #D0D8D9;
+$point2: #F2AE2E;
+$point: #0367A6;
 $point-light: lighten($point, 10%);
 $point-dark: darken($point, 10%);
+
+$point2-light: lighten($point2, 10%);
+$point2-dark: darken($point2, 10%);
 
 
 // sets cards
@@ -31,7 +34,7 @@ $ratio: 1;
 $card_width: 70%;
 $card_height: $card_width * $ratio;
 $card_padding: 20px;
-$card-bgcolor: darken($point,20%);
+$card-bgcolor: darken($point2,20%);
 $card_margin: 5px;
 $card_round: 10px;
 $card-shadow: -20px -20px 0px 0px $point-light;
@@ -48,15 +51,98 @@ $gl-md: "screen and (max-width: 64em)"; // max 1024px
 $gl-lg: "screen and (max-width: 80em)"; // max 1280px
 
 
-.nav{
+
+.sidebar {
+  position: fixed;
+  width: 22%;
+  height: 100vh;
   background: $point-dark;
-  ul{
-    list-style-type: none;
-    li{
-      padding-right: 20px;
+  font-size: 0.65em;
+}
+
+.nav {
+  position: relative;
+  margin: 0 15%;
+  text-align: right;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.nav ul {
+  list-style: none;
+
+  li {
+    position: relative;
+    margin: 3.2em 0;
+
+    a {
+      line-height: 5em;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.4em;
+      color: rgba(#FFF, 0.45);
+      display: block;
+      transition: all ease-out 300ms;
+    }
+
+    &.active a {
+      color: $black;
+    }
+
+    &:not(.active)::after {
+      opacity: 0.2;
+    }
+
+    &:not(.active):hover a {
+      color: rgba(#FFF, 0.75);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0.2em;
+      background: $black;
+      left: 0;
+      bottom: 0;
+      background-image: linear-gradient(to right, $point, $black)
     }
   }
 }
+.twitter {
+  position: relative;
+  width: 80%;
+  float: right;
+  height: 100vh;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  a {
+    position: relative;
+
+    //img {
+    //  width: 48px;
+    //  height: 48px;
+    //}
+  }
+
+  p {
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: $white;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+}
+
 
 // table style
 
@@ -176,7 +262,7 @@ table {
 }
 
 body {
-  background-color: $point;
+  background-color: $white;
   margin: auto;
 }
 
@@ -281,7 +367,7 @@ body {
     width: 50%;
     margin: 10px auto;
     padding: 10px 30px;
-    color: white;
+    color: $white;
     font-family: 'Noto Sans KR', sans-serif;
     text-transform: uppercase;
   }

@@ -4,34 +4,66 @@
       <h2><%= pluralize(oficina.errors.count, "error") %> prohibited this oficina from being saved:</h2>
 
       <ul>
-      <% oficina.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% oficina.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
+  <div class="container-fluid ">
+    <div class="row">
+      <div class="field col-md-12">
+        <%= form.label :nome %>
+        <%= form.text_field :nome, :class => "form-control" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
-  </div>
+      <div class="field col-md-12">
+        <%= form.label "Id do usuario dono da oficina" %>
+        <%= form.text_field :usuario_id, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="row form-group">
 
-  <div class="field">
-    <%= form.label :usuario_id %>
-    <%= form.text_field :usuario_id %>
-  </div>
+      <div class="col-md-6 ">
+        <%= form.label :cep, "CEP" %>
+        <%= form.text_field :cep, :class => "form-control" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :endereco_id %>
-    <%= form.text_field :endereco_id %>
-  </div>
+      <div class="col-md-6">
+        <%= form.label "Logradouro *" %>
+        <%= form.text_field :logradouro, :class => "form-control" %>
 
-  <div class="field">
-    <%= form.label :franquia_id %>
-    <%= form.text_field :franquia_id %>
-  </div>
+      </div>
+      <div class="col-md-6">
+        <%= form.label "Bairro *" %>
+        <%= form.text_field :bairro, :class => "form-control" %>
 
-  <div class="actions">
-    <%= form.submit %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :numero %>
+        <%= form.text_field :numero, :class => "form-control" %>
+
+      </div>
+      <div class="col-md-6">
+        <%= form.label :complemento %>
+        <%= form.text_field :complemento, :class => "form-control" %>
+
+      </div>
+      <div class="col-md-6">
+        <%= form.label :cidade %>
+        <%= form.text_field :cidade, :class => "form-control" %>
+
+      </div>
+      <div class="col-md-6">
+        <label for="uf">Estado</label>
+        <%= form.select(:estado, Estado.all.collect { |p| [p.nome, p.sigla] }, {}, {:class => "form-control"}) %>
+
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Cadastrar",  :class => "btn btn-success" %>
+    </div>
   </div>
 <% end %>
