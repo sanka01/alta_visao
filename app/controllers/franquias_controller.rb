@@ -28,7 +28,7 @@ class FranquiasController < ApplicationController
 
     respond_to do |format|
       if @franquia.save
-        format.html { redirect_to @franquia, notice: 'Franquia was successfully created.' }
+        format.html { redirect_to @franquia, notice: 'Franquia foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @franquia }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class FranquiasController < ApplicationController
   def update
     respond_to do |format|
       if @franquia.update(franquia_params)
-        format.html { redirect_to @franquia, notice: 'Franquia was successfully updated.' }
+        format.html { redirect_to @franquia, notice: 'Franquia foi atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @franquia }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class FranquiasController < ApplicationController
   def destroy
     @franquia.destroy
     respond_to do |format|
-      format.html { redirect_to franquias_url, notice: 'Franquia was successfully destroyed.' }
+      format.html { redirect_to franquias_url, notice: 'Franquia foi deletada com sucesso.' }
       format.json { head :no_content }
     end
   end

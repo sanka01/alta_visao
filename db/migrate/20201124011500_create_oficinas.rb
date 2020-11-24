@@ -4,7 +4,6 @@ class CreateOficinas < ActiveRecord::Migration[5.2]
       t.string :nome
       t.references :usuario, foreign_key: true
       t.references :endereco, foreign_key: true
-      t.references :franquia, foreign_key: true
 
       t.timestamps
     end

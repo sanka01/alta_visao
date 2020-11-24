@@ -16,9 +16,9 @@
       <tr>
         <td><%= instalacao.veiculo %></td>
         <td><%= instalacao.oficina %></td>
-        <td><%= link_to 'Show', instalacao %></td>
-        <td><%= link_to 'Edit', edit_instalacao_path(instalacao) %></td>
-        <td><%= link_to 'Destroy', instalacao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t(:show), instalacao %></td>
+        <td><%= link_to t(:edit), edit_instalacao_path(instalacao) %></td>
+        <td><%= link_to t(:destroy), instalacao, method: :delete, data: { confirm: t(:confirm_delete) } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Instalacao', new_instalacao_path %>
+<%= link_to 'Nova Instalacao', new_instalacao_path %>

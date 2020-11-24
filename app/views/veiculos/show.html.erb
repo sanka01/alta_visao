@@ -47,8 +47,8 @@
       </div>
 
       <div class="col-md-12">
-        <%= link_to 'Editar', edit_veiculo_path(@veiculo), :class => "btn btn-info" %>
-        <%= link_to 'Voltar', usuario_path(@veiculo.usuario), :class => "btn btn-info" %>
+        <%= link_to t(:edit), edit_veiculo_path(@veiculo), :class => "btn btn-info" %>
+        <%= link_to t(:back), usuario_path(@veiculo.usuario), :class => "btn btn-info" %>
       </div>
     </div>
   </div>

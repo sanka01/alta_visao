@@ -1,7 +1,7 @@
 <%= form_with(model: instalacao, local: true) do |form| %>
   <% if instalacao.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(instalacao.errors.count, "error") %> prohibited this instalacao from being saved:</h2>
+      <h2><%= pluralize(instalacao.errors.count, "erro") %> proibindo essa instalação de ser salva:</h2>
 
       <ul>
       <% instalacao.errors.full_messages.each do |message| %>

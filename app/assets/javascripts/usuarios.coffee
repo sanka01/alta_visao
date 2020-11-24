@@ -4,12 +4,3 @@
 
 
 $('#content').html("<%= j render(:partial => 'usuario/veiculos') %>")
-#$('#')
-#function getMonth(data, callback) {
-#  $.ajax({
-#  url: '<%= new_veiculo_path %>',
-#  type: 'GET',
-#  data: data,
-#  success: callback
-#});
-#}

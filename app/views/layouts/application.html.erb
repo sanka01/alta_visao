@@ -14,20 +14,21 @@
 <body>
       <%= render 'layouts/navigation' %>
 
-<div id="main" role="main">
-  <div class="container">
-    <div class="content">
-      <div class="row">
-        <div class="span12">
-          <%= render 'layouts/messages' %>
-          <%= yield %>
-        </div>
-      </div>
-      <footer>
-      </footer>
-    </div>
-  </div> <!--! end of .container -->
-</div> <!--! end of #main -->
+
+      <section class="twitter">
+        <div class="container">
+          <div class="content">
+            <div class="span12">
+              <%= render 'layouts/messages' %>
+            </div>
+            <%= yield %>
+
+            <footer>
+            </footer>
+          </div>
+        </div> <!--! end of .container -->
+      </section>
+
 
 <script type="text/javascript">
     $("#usuario_cep").focusout(function(){
@@ -53,9 +54,33 @@
                 $("#usuario_cidade").val(resposta.localidade);
                 $("#usuario_estado").val(resposta.uf);
                 // debugger
-                //Vamos incluir para que o Número seja focado automaticamente
-                //melhorando a experiência do usuário
-                $("#numero").focus();
+
+            }
+        });
+    });
+    $("#oficina_cep").focusout(function(){
+        //Aqui vai o código
+        //Início do Comando AJAX
+        $.ajax({
+            //O campo URL diz o caminho de onde virá os dados
+            //É importante concatenar o valor digitado no CEP
+            url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+            //Aqui você deve preencher o tipo de dados que será lido,
+            //no caso, estamos lendo JSON.
+            dataType: 'json',
+            //SUCESS é referente a função que será executada caso
+            //ele consiga ler a fonte de dados com sucesso.
+            //O parâmetro dentro da função se refere ao nome da variável
+            //que você vai dar para ler esse objeto.
+            success: function(resposta){
+                //Agora basta definir os valores que você deseja preencher
+                //automaticamente nos campos acima.
+                $("#oficina_logradouro").val(resposta.logradouro);
+                $("#oficina_complemento").val(resposta.complemento);
+                $("#oficina_bairro").val(resposta.bairro);
+                $("#oficina_cidade").val(resposta.localidade);
+                $("#oficina_estado").val(resposta.uf);
+
             }
         });
     });
