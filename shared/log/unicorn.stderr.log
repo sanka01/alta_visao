@@ -9307,3 +9307,42 @@ I, [2020-11-13T01:13:36.835205 #2636]  INFO -- : worker=0 ready
 I, [2020-11-13T01:14:26.827786 #2634]  INFO -- : reaped #<Process::Status: pid 2636 exit 0> worker=0
 I, [2020-11-13T01:14:26.827863 #2634]  INFO -- : reaped #<Process::Status: pid 2637 exit 0> worker=1
 I, [2020-11-13T01:14:26.827914 #2634]  INFO -- : master complete
+I, [2020-11-13T12:29:39.407182 #8156]  INFO -- : Refreshing Gem list
+config.eager_load is set to nil. Please update your config/environments/*.rb files accordingly:
+
+  * development - set it to false
+  * test - set it to false (unless you use a tool that preloads your test environment)
+  * production - set it to true
+
+/var/lib/gems/2.7.0/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/stack.rb:37: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/static.rb:111: warning: The called method `initialize' is defined here
+I, [2020-11-13T12:29:39.927492 #8156]  INFO -- : unlinking existing socket=/home/ubuntu/alta_visao/shared/sockets/unicorn.sock
+I, [2020-11-13T12:29:39.929828 #8156]  INFO -- : listening on addr=/home/ubuntu/alta_visao/shared/sockets/unicorn.sock fd=9
+I, [2020-11-13T12:29:39.930861 #8156]  INFO -- : worker=0 spawning...
+I, [2020-11-13T12:29:39.932301 #8156]  INFO -- : worker=1 spawning...
+I, [2020-11-13T12:29:39.933144 #8156]  INFO -- : master process ready
+I, [2020-11-13T12:29:39.946901 #8157]  INFO -- : worker=0 spawned pid=8157
+I, [2020-11-13T12:29:39.947027 #8157]  INFO -- : worker=0 ready
+I, [2020-11-13T12:29:39.947244 #8158]  INFO -- : worker=1 spawned pid=8158
+I, [2020-11-13T12:29:39.947350 #8158]  INFO -- : worker=1 ready
+I, [2020-11-14T15:17:55.614615 #8156]  INFO -- : reaped #<Process::Status: pid 8157 exit 0> worker=0
+I, [2020-11-14T15:17:55.615885 #8156]  INFO -- : reaped #<Process::Status: pid 8158 exit 0> worker=1
+I, [2020-11-14T15:17:55.616003 #8156]  INFO -- : master complete
+I, [2020-11-24T13:28:09.300243 #723]  INFO -- : Refreshing Gem list
+config.eager_load is set to nil. Please update your config/environments/*.rb files accordingly:
+
+  * development - set it to false
+  * test - set it to false (unless you use a tool that preloads your test environment)
+  * production - set it to true
+
+/var/lib/gems/2.7.0/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/stack.rb:37: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/var/lib/gems/2.7.0/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/static.rb:111: warning: The called method `initialize' is defined here
+I, [2020-11-24T13:28:10.977390 #723]  INFO -- : unlinking existing socket=/home/ubuntu/alta_visao/shared/sockets/unicorn.sock
+I, [2020-11-24T13:28:10.977515 #723]  INFO -- : listening on addr=/home/ubuntu/alta_visao/shared/sockets/unicorn.sock fd=9
+I, [2020-11-24T13:28:10.978462 #723]  INFO -- : worker=0 spawning...
+I, [2020-11-24T13:28:10.979595 #723]  INFO -- : worker=1 spawning...
+I, [2020-11-24T13:28:10.980360 #723]  INFO -- : master process ready
+I, [2020-11-24T13:28:11.000945 #742]  INFO -- : worker=1 spawned pid=742
+I, [2020-11-24T13:28:11.001069 #742]  INFO -- : worker=1 ready
+I, [2020-11-24T13:28:11.011803 #741]  INFO -- : worker=0 spawned pid=741
+I, [2020-11-24T13:28:11.011959 #741]  INFO -- : worker=0 ready
