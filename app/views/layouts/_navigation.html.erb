@@ -28,13 +28,28 @@
       <li class="<% if current_page?(new_usuario_path) %> active <%end %>">
         <%= link_to "cadastrar pessoa", new_usuario_path %>
       </li>
+      <%if conta_signed_in? %>
 
-      <li class="<% if current_page?(new_oficina_path) %> active <%end %>">
+        <li class="<% if current_page?(new_oficina_path) %> active <%end %>">
         <%= link_to "cadastrar oficina", new_oficina_path, :class => "nav-link" %>
       </li>
-<!--      <li>-->
-        <%#= link_to "Acesso administrativo", usuarios_path, :class => "nav-link"  %>
-<!--      </li>-->
+        <li class="<% if current_page?(new_franquia_path) %> active <%end %>">
+        <%= link_to "cadastrar franquia", new_franquia_path, :class => "nav-link" %>
+      </li>
+      <li  class="<% if current_page?(usuarios_path) %> active <%end %>">
+        <%= link_to "Acesso administrativo", usuarios_path, :class => "nav-link"  %>
+      </li>
+
+      <li>
+        <%= link_to "Sair", destroy_conta_session_path, :method => :delete , :class => "nav-link" %>
+      </li>
+        <%else %>
+
+
+        <li  class="<% if current_page?(new_conta_session_path) %> active <%end %>">
+          <%= link_to "Entrar", new_conta_session_path , :class => "nav-link" %>
+        </li>
+        <%end %>
     </ul>
   </nav>
 </aside>

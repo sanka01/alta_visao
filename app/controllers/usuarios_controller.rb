@@ -1,6 +1,7 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
   # before_action :set_atributos, only: [:show, :edit]
+  before_action :authenticate_conta!, only: [:index, :edit, :update, :destroy]
 
   def consulta_endereco
     finder = Correios::CEP::AddressFinder.new

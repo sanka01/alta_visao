@@ -1,5 +1,6 @@
 class OficinasController < ApplicationController
   before_action :set_oficina, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_conta!
 
   # GET /oficinas
   # GET /oficinas.json

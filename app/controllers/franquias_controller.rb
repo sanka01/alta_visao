@@ -1,5 +1,6 @@
 class FranquiasController < ApplicationController
   before_action :set_franquia, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_conta!
 
   # GET /franquias
   # GET /franquias.json

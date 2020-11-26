@@ -35,10 +35,10 @@ estados = Estado.create([{sigla: "AC", nome: "Acre"},
                {sigla: "SE", nome: "Sergipe"},
                {sigla: "TO", nome: "Tocantins"}])
 
-usuarios = Usuario.create([{nome: "Jean Paula Alves	", associado: true},
-                {nome: "Wellington da Silva", associado: true},
-                {nome: "Rafael Alves Batista	", associado: true},
-                {nome: "Celia da Silva", associado: true}
+usuarios = Usuario.create([{nome: "Jean Paula Alves	", associado: true, indicacao: 0},
+                {nome: "Wellington da Silva", associado: true, indicacao: 0},
+                {nome: "Rafael Alves Batista	", associado: true, indicacao: 0},
+                {nome: "Celia da Silva", associado: true, indicacao: 0}
                ])
 
 franquias = Franquia.create([{nome: "001", usuario_id: 1},
@@ -46,4 +46,3 @@ franquias = Franquia.create([{nome: "001", usuario_id: 1},
                  {nome: "003", usuario_id: 3},
                  {nome: "004", usuario_id: 4}])
 
-usuarios[0].franquia

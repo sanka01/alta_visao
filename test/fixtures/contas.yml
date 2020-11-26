@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  nivel_permissao: 
+  usuario: one
+  oficina: one
+  franquia: one
+
+two:
+  nome: MyString
+  nivel_permissao: 
+  usuario: two
+  oficina: two
+  franquia: two

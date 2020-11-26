@@ -76,12 +76,12 @@
         </p>
       </div>
 
-      <% if @usuario.indicacao != nil %>
+      <% if @usuario.indicacao != 0 %>
         <div class="col-md-6">
 
           <p>
             <strong>Indicado por:</strong>
-            <%= Usuario.find(@usuario.indicacao) if @usuario.indicacao != nil %>
+            <%= Usuario.find(@usuario.indicacao)%>
           </p>
         </div>
       <% end %>

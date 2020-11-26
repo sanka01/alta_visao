@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @conta.nome %>
+</p>
+
+<p>
+  <strong>Nivel permissao:</strong>
+  <%= @conta.nivel_permissao %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @conta.usuario %>
+</p>
+
+<p>
+  <strong>Oficina:</strong>
+  <%= @conta.oficina %>
+</p>
+
+<p>
+  <strong>Franquia:</strong>
+  <%= @conta.franquia %>
+</p>
+
+<%= link_to 'Edit', edit_conta_path(@conta) %> |
+<%= link_to 'Back', contas_path %>
