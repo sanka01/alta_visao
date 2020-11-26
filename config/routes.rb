@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :contas
+  resources :contas
   resources :instalacoes
   resources :oficinas
   resources :franquias
   resources :applications
-  resources :usuarios do
-  end
+  resources :usuarios
   resources :veiculos
   # get 'usuario/:cep', to: 'usuarios#consulta_endereco'
 

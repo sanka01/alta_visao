@@ -69,3 +69,5 @@ gem 'unicorn'
 gem 'pg'
 # gem 'bcrypt'
 
+gem 'devise'
+gem 'cancancan'

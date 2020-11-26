@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_012425) do
+ActiveRecord::Schema.define(version: 2020_11_25_140848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,22 @@ ActiveRecord::Schema.define(version: 2020_11_24_012425) do
 
   create_table "contas", force: :cascade do |t|
     t.string "nome"
+    t.integer "nivel_permissao"
+    t.bigint "usuario_id"
+    t.bigint "oficina_id"
+    t.bigint "franquia_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.integer "usuario_id"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_contas_on_email", unique: true
+    t.index ["franquia_id"], name: "index_contas_on_franquia_id"
+    t.index ["oficina_id"], name: "index_contas_on_oficina_id"
+    t.index ["reset_password_token"], name: "index_contas_on_reset_password_token", unique: true
+    t.index ["usuario_id"], name: "index_contas_on_usuario_id"
   end
 
   create_table "enderecos", force: :cascade do |t|
@@ -84,16 +96,6 @@ ActiveRecord::Schema.define(version: 2020_11_24_012425) do
     t.index ["usuario_id"], name: "index_oficinas_on_usuario_id"
   end
 
-  create_table "useres", force: :cascade do |t|
-    t.string "login"
-    t.bigint "usuario_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.index ["login"], name: "index_useres_on_login"
-    t.index ["usuario_id"], name: "index_useres_on_usuario_id"
-  end
-
   create_table "usuarios", force: :cascade do |t|
     t.string "nome"
     t.string "rg"
@@ -126,6 +128,8 @@ ActiveRecord::Schema.define(version: 2020_11_24_012425) do
   end
 
   add_foreign_key "cidades", "estados"
+  add_foreign_key "contas", "franquias"
+  add_foreign_key "contas", "oficinas"
   add_foreign_key "contas", "usuarios"
   add_foreign_key "enderecos", "cidades"
   add_foreign_key "enderecos", "usuarios"
@@ -135,7 +139,6 @@ ActiveRecord::Schema.define(version: 2020_11_24_012425) do
   add_foreign_key "oficinas", "enderecos"
   add_foreign_key "oficinas", "franquias"
   add_foreign_key "oficinas", "usuarios"
-  add_foreign_key "useres", "usuarios"
   add_foreign_key "usuarios", "franquias"
   add_foreign_key "veiculos", "oficinas"
   add_foreign_key "veiculos", "usuarios"
