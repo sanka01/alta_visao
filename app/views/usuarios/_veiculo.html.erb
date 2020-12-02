@@ -1,38 +1,58 @@
-<div class="container center">
-  <div class="card">
-    <div class="card-body">
-      <div class="col-md-6">
+<div class="card col-md-12">
+  <div class="card-body">
+    <div class="col-md-6">
 
-        <strong>Modelo:</strong>
-        <p><%= veiculo.modelo %></p>
-
-      </div>
-      <div class="col-md-6">
-
-        <strong>Ano: </strong>
-        <p><%= veiculo.ano %></p>
-      </div>
-      <div class="col-md-6">
-
-        <strong>Renavan: </strong>
-        <p><%= veiculo.renavan %></p>
-      </div>
-      <div class="col-md-6">
-
-        <strong>Chassi: </strong>
-        <p><%= veiculo.chassi %></p>
-      </div>
-      <div class="col-md-6">
-
-        <strong>Placa: </strong>
-        <p><%= veiculo.placa %></p>
-      </div>
-    </div>
-    <div class="col-md-4">
-
-      <%= link_to t(:show), veiculo_path(veiculo), :class => "btn btn-info" %>
-      <%= link_to t(:destroy), veiculo, method: :delete, :class => "btn btn-danger", data: {confirm: t(:confirm_delete)} %>
+      <strong>Modelo:</strong>
+      <p><%= veiculo.modelo %></p>
 
     </div>
+    <div class="col-md-6">
+
+      <strong>Ano: </strong>
+      <p><%= veiculo.ano %></p>
+    </div>
+    <div class="col-md-6">
+
+      <strong>Renavan: </strong>
+      <p><%= veiculo.renavan %></p>
+    </div>
+    <div class="col-md-6">
+
+      <strong>Chassi: </strong>
+      <p><%= veiculo.chassi %></p>
+    </div>
+
+    <div class="col-md-6">
+
+      <strong>Cor: </strong>
+      <p><%= veiculo.cor %></p>
+    </div>
+    <div class="col-md-6">
+
+      <strong>Marca: </strong>
+      <p><%= veiculo.marca %></p>
+    </div>
+    <div class="col-md-6">
+
+      <strong>Placa: </strong>
+      <p><%= veiculo.placa %></p>
+    </div>
+
+    <div class="col-md-6">
+
+      <p>
+        <strong>Rastreador:</strong>
+        <%= veiculo.rastreador_instalado? %>
+      </p>
+    </div>
+  </div>
+
+  <div class="col-md-12 linha-final">
+
+    <%= link_to t(:show), veiculo_path(veiculo), :class => "btn btn-info" %>
+    <% unless veiculo.instalacao.present? %>
+      <%= link_to "Instalar Rastreador", new_instalacao_path(veiculo_id: veiculo.id), :class => "btn btn-success" %>
+    <% end %>
+    <%= link_to t(:destroy), veiculo, method: :delete, :class => "btn btn-danger", data: {confirm: t(:confirm_delete)} %>
   </div>
 </div>

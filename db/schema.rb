@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_140848) do
+ActiveRecord::Schema.define(version: 2020_12_01_155914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_140848) do
     t.integer "oficina_id"
     t.float "valor_instalacao"
     t.float "mensalidade"
+    t.string "cor"
+    t.string "marca"
   end
 
   add_foreign_key "cidades", "estados"

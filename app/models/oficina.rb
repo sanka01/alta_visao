@@ -1,6 +1,9 @@
 class Oficina < ApplicationRecord
   belongs_to :usuario
   belongs_to :endereco
-  has_one :franquia, through: :usuario
+  belongs_to :franquia
 
+  def to_s
+    nome
+  end
 end

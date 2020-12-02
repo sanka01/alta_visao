@@ -4,40 +4,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:title) ? yield(:title) : "Auto Visão" %></title>
+  <link rel="icon" type="image/png" href="/assets/logo.png">
   <meta name="description" content="">
-  <meta name="author" content="">
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <meta name="author" content="Samuel S Morais">
+  <script src="https://kit.fontawesome.com/d19e17e928.js" crossorigin="anonymous"></script>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= yield(:head) %>
 </head>
 <body>
-      <%= render 'layouts/navigation' %>
+<%= render 'layouts/navigation' %>
 
 
-      <section class="twitter">
-        <div class="container">
-          <div class="content">
-            <div class="span12">
-              <%= render 'layouts/messages' %>
-            </div>
-            <%= yield %>
+<section class="twitter">
+  <%= render 'layouts/messages' %>
 
-            <footer>
-            </footer>
-          </div>
-        </div> <!--! end of .container -->
-      </section>
+
+  <div class="container">
+
+    <div class="content">
+      <%= yield %>
+
+      <footer>
+      </footer>
+    </div>
+  </div> <!--! end of .container -->
+</section>
 
 
 <script type="text/javascript">
-    $("#usuario_cep").focusout(function(){
+    $("#usuario_cep").focusout(function () {
         //Aqui vai o código
         //Início do Comando AJAX
         $.ajax({
             //O campo URL diz o caminho de onde virá os dados
             //É importante concatenar o valor digitado no CEP
-            url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+            url: 'https://viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
             //Aqui você deve preencher o tipo de dados que será lido,
             //no caso, estamos lendo JSON.
             dataType: 'json',
@@ -45,7 +48,7 @@
             //ele consiga ler a fonte de dados com sucesso.
             //O parâmetro dentro da função se refere ao nome da variável
             //que você vai dar para ler esse objeto.
-            success: function(resposta){
+            success: function (resposta) {
                 //Agora basta definir os valores que você deseja preencher
                 //automaticamente nos campos acima.
                 $("#usuario_logradouro").val(resposta.logradouro);
@@ -58,13 +61,13 @@
             }
         });
     });
-    $("#oficina_cep").focusout(function(){
+    $("#oficina_cep").focusout(function () {
         //Aqui vai o código
         //Início do Comando AJAX
         $.ajax({
             //O campo URL diz o caminho de onde virá os dados
             //É importante concatenar o valor digitado no CEP
-            url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+            url: 'https://viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
             //Aqui você deve preencher o tipo de dados que será lido,
             //no caso, estamos lendo JSON.
             dataType: 'json',
@@ -72,7 +75,7 @@
             //ele consiga ler a fonte de dados com sucesso.
             //O parâmetro dentro da função se refere ao nome da variável
             //que você vai dar para ler esse objeto.
-            success: function(resposta){
+            success: function (resposta) {
                 //Agora basta definir os valores que você deseja preencher
                 //automaticamente nos campos acima.
                 $("#oficina_logradouro").val(resposta.logradouro);

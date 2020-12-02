@@ -1,6 +1,6 @@
-<h1>Editing Franquia</h1>
+<h1>Editando Franquia</h1>
 
 <%= render 'form', franquia: @franquia %>
 
-<%= link_to t(:show), @franquia %> |
-<%= link_to t(:back), franquias_path %>
+<%= link_to t(:show), @franquia, :class => "btn btn-info"  %> |
+<%= link_to t(:back), franquias_path, :class => "btn btn-info"  %>

@@ -4,24 +4,27 @@
       <h2><%= pluralize(instalacao.errors.count, "erro") %> proibindo essa instalação de ser salva:</h2>
 
       <ul>
-      <% instalacao.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% instalacao.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
+  <div class="container-fluid ">
+    <div class="row form-group">
 
-  <div class="field">
-    <%= form.label :veiculo_id %>
-    <%= form.text_field :veiculo_id %>
+      <div class="field col-md-12">
+        <%= form.hidden_field :veiculo_id, :value => @veiculo.id %>
+
+          <%= form.label :oficina_id %>
+          <%= form.select(:oficina_id, @franquia.oficinas.collect { |p| [p.nome, p.id] },{}, {:class => "form-control"} )%>
+
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Cadastrar", :class => "btn btn-success" %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :oficina_id %>
-    <%= form.text_field :oficina_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

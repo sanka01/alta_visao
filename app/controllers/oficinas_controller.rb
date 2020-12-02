@@ -36,6 +36,7 @@ class OficinasController < ApplicationController
     estado = Estado.find_by_sigla params[:oficina][:estado]
     cidade.estado = estado
     endereco.usuario = @oficina.usuario
+    @oficina.franquia = @oficina.usuario.franquia
     cidade.save
     endereco.cidade = cidade
     if endereco.save!

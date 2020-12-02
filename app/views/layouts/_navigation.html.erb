@@ -1,55 +1,53 @@
-<!--<nav class="nav navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">-->
-<!--  <ul class="navbar-nav bd-navbar-nav flex-row">-->
-
-<!--    <li class="nav-item">-->
-      <%#= link_to "cadastrar pessoa", new_usuario_path, :class => "nav-link" %>
-
-<!--    </li>-->
-<!--    <li class="nav-item">-->
-      <%#= link_to "cadastrar oficina", new_oficina_path, :class => "nav-link" %>
-
-<!--    </li>-->
-<!--    <li class="nav-item">-->
-      <%#= link_to "Acesso administrativo", usuarios_path, :class => "nav-link"  %>
-
-<!--    </li>-->
-<!--  </ul>-->
-<!--</nav>-->
-
-
-
 <aside class="sidebar">
+  <div>
+    <%= image_tag "LOGO", :class => "img-fluid  imagem" %>
+  </div>
   <nav class="nav">
     <ul>
-      <li class="<% if current_page?(root_path) %> active <%end %>">
+      <li class="
+        <% if current_page?(root_path) %> active
+        <% end %>">
+
         <%= link_to "Bem vindo", root_path %>
       </li>
 
-      <li class="<% if current_page?(new_usuario_path) %> active <%end %>">
+      <li class="
+        <% if current_page?(new_usuario_path) %> active
+        <% end %>">
         <%= link_to "cadastrar pessoa", new_usuario_path %>
       </li>
-      <%if conta_signed_in? %>
+      <% if conta_signed_in? %>
+        <% if current_conta.is_admin? %>
 
-        <li class="<% if current_page?(new_oficina_path) %> active <%end %>">
-        <%= link_to "cadastrar oficina", new_oficina_path, :class => "nav-link" %>
-      </li>
-        <li class="<% if current_page?(new_franquia_path) %> active <%end %>">
-        <%= link_to "cadastrar franquia", new_franquia_path, :class => "nav-link" %>
-      </li>
-      <li  class="<% if current_page?(usuarios_path) %> active <%end %>">
-        <%= link_to "Acesso administrativo", usuarios_path, :class => "nav-link"  %>
-      </li>
+          <li class="
+            <% if current_page?(new_oficina_path) %> active
+            <% end %>">
+            <%= link_to "cadastrar oficina", new_oficina_path, :class => "nav-link" %>
+          </li>
+          <li class="
+            <% if current_page?(new_franquia_path) %> active
+            <% end %>">
+            <%= link_to "cadastrar franquia", new_franquia_path, :class => "nav-link" %>
+          </li>
+          <li class="
+            <% if current_page?(administrador_path) %> active
+            <% end %>">
+            <%= link_to "Acesso administrativo", administrador_path, :class => "nav-link" %>
+          </li>
+        <% end %>
 
-      <li>
-        <%= link_to "Sair", destroy_conta_session_path, :method => :delete , :class => "nav-link" %>
-      </li>
-        <%else %>
-
-
-        <li  class="<% if current_page?(new_conta_session_path) %> active <%end %>">
-          <%= link_to "Entrar", new_conta_session_path , :class => "nav-link" %>
+        <li>
+          <%= link_to "Sair", destroy_conta_session_path, :method => :delete, :class => "nav-link" %>
         </li>
-        <%end %>
+      <% else %>
+
+
+        <li class="
+          <% if current_page?(new_conta_session_path) %> active
+          <% end %>">
+          <%= link_to "Entrar", new_conta_session_path, :class => "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </nav>
 </aside>

@@ -1,0 +1,33 @@
+
+// sets gerais
+$black: #282828;
+$white: #D0D8D9;
+$point2: #F2AE2E;
+$point: #0367A6;
+$point-light: lighten($point, 10%);
+$point-dark: darken($point, 10%);
+
+$point2-light: lighten($point2, 10%);
+$point2-dark: darken($point2, 10%);
+
+
+// sets cards
+$ratio: 0.75;
+$card_width: 70%;
+$card_height: $card_width * $ratio;
+$card_padding: 20px;
+$card-bgcolor: darken($point2, 20%);
+$card_margin: 5px;
+$card_round: 10%;
+$card-shadow: -20px -20px 0px 0px $point2-dark;
+
+$card-padding-basis: 15px;
+$card_head_padding: 0px 0px $card-padding-basis 0px;
+
+// sets table
+
+$gl-ms: "screen and (max-width: 23.5em)"; // up to 360px
+$gl-xs: "screen and (max-width: 35.5em)"; // up to 568px
+$gl-sm: "screen and (max-width: 48em)"; // max 768px
+$gl-md: "screen and (max-width: 64em)"; // max 1024px
+$gl-lg: "screen and (max-width: 80em)"; // max 1280px

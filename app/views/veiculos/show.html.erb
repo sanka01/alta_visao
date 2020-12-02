@@ -38,6 +38,17 @@
           <%= @veiculo.ano %>
         </p>
       </div>
+
+      <div class="col-md-6">
+
+        <strong>Cor: </strong>
+        <p><%= veiculo.cor %></p>
+      </div>
+      <div class="col-md-6">
+
+        <strong>Marca: </strong>
+        <p><%= veiculo.marca %></p>
+      </div>
       <div class="col-md-6">
 
         <p>
@@ -46,9 +57,20 @@
         </p>
       </div>
 
-      <div class="col-md-12">
+      <div class="col-md-6">
+
+        <p>
+          <strong>Rastreador:</strong>
+          <%= @veiculo.rastreador_instalado? %>
+        </p>
+      </div>
+
+      <div class="col-md-12 linha-final">
         <%= link_to t(:edit), edit_veiculo_path(@veiculo), :class => "btn btn-info" %>
         <%= link_to t(:back), usuario_path(@veiculo.usuario), :class => "btn btn-info" %>
+        <%unless @veiculo.instalacao.present? %>
+        <%= link_to "Instalar Rastreador", usuario_path(@veiculo.usuario), :class => "btn btn-success" %>
+          <%end %>
       </div>
     </div>
   </div>

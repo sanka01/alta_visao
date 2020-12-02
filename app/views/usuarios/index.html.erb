@@ -4,44 +4,46 @@
 
 <table class="table">
   <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nome</th>
-<!--      <th>Rg</th>-->
-<!--      <th>Cpf cnpj</th>-->
-<!--      <th>Email</th>-->
-<!--      <th>Endereco</th>-->
-<!--      <th>Telefone</th>-->
-<!--      <th>Telefone 2</th>-->
-      <th>Cobranca</th>
-      <th>Tipo usuario</th>
-      <th>Associado</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <!--      <th>Rg</th>-->
+    <!--      <th>Cpf cnpj</th>-->
+    <!--      <th>Email</th>-->
+    <!--      <th>Endereco</th>-->
+    <!--      <th>Telefone</th>-->
+    <!--      <th>Telefone 2</th>-->
+    <th>Cobranca</th>
+    <th>Franquia</th>
+    <!--      <th>Tipo usuario</th>-->
+    <th>Associado</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @usuarios.each do |usuario| %>
-      <tr>
-        <td><%= usuario.id %></td>
-        <td><%= usuario.nome %></td>
-<!--        <td><%#= usuario.rg %></td>-->
-<!--        <td><%#= usuario.cpf_cnpj %></td>-->
-<!--        <td><%#= usuario.email %></td>-->
-<!--        <td><%#= usuario.endereco_id %></td>-->
-<!--        <td><%#= usuario.telefone %></td>-->
-<!--        <td><%#= usuario.telefone_2 %></td>-->
-        <td><%= usuario.cobranca %></td>
-        <td><%= usuario.tipo_usuario %></td>
-        <td><%= usuario.associado ? "Sim" : "Não" %></td>
-        <td><%= link_to t(:show), usuario %></td>
-        <td><%= link_to t(:edit), edit_usuario_path(usuario) %></td>
-        <td><%= link_to t(:destroy), usuario, method: :delete, data: { confirm: t(:confirm_delete) } %></td>
-      </tr>
-    <% end %>
+  <% @usuarios.order("id asc").each do |usuario| %>
+    <tr class="center">
+      <td><%= usuario.id %></td>
+      <td><%= usuario.nome %></td>
+      <!--        <td><%#= usuario.rg %></td>-->
+      <!--        <td><%#= usuario.cpf_cnpj %></td>-->
+      <!--        <td><%#= usuario.email %></td>-->
+      <!--        <td><%#= usuario.endereco_id %></td>-->
+      <!--        <td><%#= usuario.telefone %></td>-->
+      <!--        <td><%#= usuario.telefone_2 %></td>-->
+      <td><%= usuario.cobranca || 0 %></td>
+      <td><%= usuario.franquia %></td>
+      <!--        <td><%#= usuario.tipo_usuario %></td>-->
+      <td><%= usuario.associado ? "Sim" : "Não" %></td>
+      <td><%= link_to t(:show), usuario, :class => "btn btn-info" %></td>
+      <td><%= link_to t(:edit), edit_usuario_path(usuario), :class => "btn btn-warning" %></td>
+      <td><%= link_to t(:destroy), usuario, method: :delete, data: {confirm: t(:confirm_delete)}, :class => "btn btn-danger" %></td>
+    </tr>
+  <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Usuario', new_usuario_path %>
+<%= link_to 'Novo Usuario', new_usuario_path, :class => "btn btn-success" %>

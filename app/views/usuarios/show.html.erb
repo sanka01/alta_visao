@@ -1,107 +1,113 @@
-<p id="notice"><%= notice %></p>
-<div class="container center">
-  <div class="card">
-    <div class="card-body">
+<div class="container-fluid container ">
+  <div class="row col-md-12">
 
-      <div class="col-md-12 ">
+    <div class="card col-md-12">
+      <div class="card-body">
 
-        <h3 class="card-title">
-          <strong>Nome:</strong>
-          <%= @usuario.nome %>
-        </h3>
-      </div>
-      <div class="col-md-6">
+        <div class="col-md-12 ">
 
-        <p>
-          <strong>Rg:</strong>
-          <%= @usuario.rg %>
-        </p>
-      </div>
-      <div class="col-md-6">
-
-        <p>
-          <strong>Cpf cnpj:</strong>
-          <%= @usuario.cpf_cnpj %>
-        </p>
-      </div>
-      <div class="col-md-6">
-
-        <p>
-          <strong>Email:</strong>
-          <%= @usuario.email %>
-        </p>
-      </div>
-      <div class="col-md-6">
-
-        <p>
-          <strong>Telefone:</strong>
-          <%= @usuario.telefone %>
-        </p>
-      </div>
-      <div class="col-md-6">
-
-        <p>
-          <strong>Telefone 2:</strong>
-          <%= @usuario.telefone_2 %>
-        </p>
-      </div>
-      <div class="col-md-6">
-
-        <p>
-          <strong>Cobranca:</strong>
-          <%= @usuario.cobranca %>
-        </p>
-      </div>
-      <div class="col-md-6">
-
-        <p>
-          <strong>Tipo usuario:</strong>
-          <%= @usuario.tipo_usuario %>
-        </p>
-      </div>
-      <div class="col-md-6">
-
-        <p>
-          <strong>Associado:</strong>
-          <%= @usuario.associado ? "Sim" : "Não" %>
-        </p>
-      </div>
-
-
-      <div class="col-md-6">
-
-        <p>
-          <strong>Endereco:</strong>
-          <%= @usuario.endereco %>
-        </p>
-      </div>
-
-      <% if @usuario.indicacao != 0 %>
+          <h3 class="card-title">
+            <strong>Nome:</strong>
+            <%= @usuario.nome %>
+          </h3>
+        </div>
         <div class="col-md-6">
 
           <p>
-            <strong>Indicado por:</strong>
-            <%= Usuario.find(@usuario.indicacao)%>
+            <strong>Rg:</strong>
+            <%= @usuario.rg %>
           </p>
         </div>
-      <% end %>
-      <div class="col-md-6">
+        <div class="col-md-6">
 
-        <p>
-          <strong>Franquia:</strong>
-          <%= @usuario.franquia %>
-        </p>
-      </div>
+          <p>
+            <strong>Cpf cnpj:</strong>
+            <%= @usuario.cpf_cnpj %>
+          </p>
+        </div>
+        <div class="col-md-6">
 
-      <div class="col-md-12">
-        <%= link_to "Novo Veiculo", new_veiculo_path(@veiculo, id: @usuario.id), {:class => "btn btn-success"} %>
+          <p>
+            <strong>Email:</strong>
+            <%= @usuario.email %>
+          </p>
+        </div>
+        <div class="col-md-6">
 
-        <%= link_to t(:edit), edit_usuario_path(@usuario), :class => "btn btn-info" %>
-        <%= link_to t(:back), root_path, :class => "btn btn-info" %>
+          <p>
+            <strong>Telefone:</strong>
+            <%= @usuario.telefone %>
+          </p>
+        </div>
+        <div class="col-md-6">
+
+          <p>
+            <strong>Telefone 2:</strong>
+            <%= @usuario.telefone_2 %>
+          </p>
+        </div>
+        <div class="col-md-6">
+
+          <p>
+            <strong>Cobranca:</strong>
+            <%= @usuario.cobranca %>
+          </p>
+        </div>
+        <div class="col-md-6">
+
+          <p>
+            <strong>Tipo usuario:</strong>
+            <%= @usuario.tipo_usuario %>
+          </p>
+        </div>
+        <div class="col-md-6">
+
+          <p>
+            <strong>Associado:</strong>
+            <%= @usuario.associado ? "Sim" : "Não" %>
+          </p>
+        </div>
+
+
+        <div class="col-md-6">
+
+          <p>
+            <strong>Endereco:</strong>
+            <%= @usuario.endereco %>
+          </p>
+        </div>
+
+        <% if @usuario.indicacao != 0 %>
+          <div class="col-md-6">
+
+            <p>
+              <strong>Indicado por:</strong>
+              <%= @usuario.indicado_por %>
+            </p>
+          </div>
+        <% end %>
+        <div class="col-md-6">
+
+          <p>
+            <strong>Franquia:</strong>
+            <%= @usuario.franquia %>
+          </p>
+        </div>
+
+        <div class="col-md-12 linha-final">
+          <%= link_to "Novo Veiculo", new_veiculo_path(@veiculo, id: @usuario.id), {:class => "btn btn-success"} %>
+
+          <%= link_to t(:edit), edit_usuario_path(@usuario), :class => "btn btn-info" %>
+          <%= link_to t(:back), root_path, :class => "btn btn-info" %>
+        </div>
       </div>
     </div>
   </div>
+
+  <br/><br/>
+  <% @usuario.veiculos.each do |veiculo| %>
+    <div class="row col-md-12">
+      <%= render "veiculo", veiculo: veiculo %>
+    </div>
+  <% end %>
 </div>
-<% @usuario.veiculos.each do |veiculo| %>
-  <%= render "veiculo", veiculo: veiculo %>
-<% end %>
