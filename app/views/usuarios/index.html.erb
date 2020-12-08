@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Usuarios</h1>
 
@@ -15,6 +14,7 @@
     <!--      <th>Telefone 2</th>-->
     <th>Cobranca</th>
     <th>Franquia</th>
+<!--    <th>Status</th>-->
     <!--      <th>Tipo usuario</th>-->
     <th>Associado</th>
     <th colspan="3"></th>
@@ -22,7 +22,7 @@
   </thead>
 
   <tbody>
-  <% @usuarios.order("id asc").each do |usuario| %>
+  <% @usuarios.where("status = true").order("id asc").each do |usuario| %>
     <tr class="center">
       <td><%= usuario.id %></td>
       <td><%= usuario.nome %></td>
@@ -34,6 +34,7 @@
       <!--        <td><%#= usuario.telefone_2 %></td>-->
       <td><%= usuario.cobranca || 0 %></td>
       <td><%= usuario.franquia %></td>
+<!--      <td><%#= usuario.status ? "Ativo" : "Inativo" %></td>-->
       <!--        <td><%#= usuario.tipo_usuario %></td>-->
       <td><%= usuario.associado ? "Sim" : "Não" %></td>
       <td><%= link_to t(:show), usuario, :class => "btn btn-info" %></td>

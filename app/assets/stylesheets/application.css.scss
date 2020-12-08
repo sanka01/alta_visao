@@ -60,3 +60,13 @@ body {
   margin-bottom: -20em;
   margin-top: -5em;
 }
+
+.breadcrumb{
+  background: transparent;
+  .breadcrumb-item{
+    color: $point2-light;
+    a{
+      color: $point2-dark;
+    }
+  }
+}

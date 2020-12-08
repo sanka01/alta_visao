@@ -27,7 +27,7 @@
 
       <div class="field col-md-6">
         <%= form.label :cpf_cnpj, "CPF/CNPJ *" %>
-        <%= form.text_field :cpf_cnpj, :class => "form-control" %>
+        <%= form.number_field :cpf_cnpj, :class => "form-control" %>
       </div>
     </div>
     <div class="row form-group">
@@ -38,14 +38,14 @@
       </div>
       <div class="field col-md-6">
         <%= form.label :indicacao, "ID da pessoa que o indicou * " %>
-        <%= form.text_field :indicacao, :class => "form-control" %>
+        <%= form.number_field :indicacao, :class => "form-control" %>
       </div>
     </div>
     <div class="row form-group">
 
       <div class="col-md-6 ">
         <%= form.label :cep, "CEP *" %>
-        <%= form.text_field :cep, :class => "form-control" %>
+        <%= form.number_field :cep, :class => "form-control" %>
       </div>
 
       <div class="col-md-6">

@@ -1,12 +1,7 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
-  # before_action :set_atributos, only: [:show, :edit]
+  before_action :set_atributos, only: [:show, :edit]
   before_action :authenticate_conta!, only: [:index, :edit, :update, :destroy]
-
-  def consulta_endereco
-    finder = Correios::CEP::AddressFinder.new
-    address = finder.get(params[:cep])
-  end
 
   # GET /usuarios
   # GET /usuarios.json
@@ -34,6 +29,7 @@ class UsuariosController < ApplicationController
     isAllSave = false
     @usuario = Usuario.new(usuario_params)
     @usuario.cobranca = @usuario.associado ? 189 : 63
+    @usuario.status = true
     if @usuario.indicacao != nil
       u = Usuario.find(@usuario.indicacao)
       @usuario.franquia = u.franquia
@@ -84,18 +80,25 @@ class UsuariosController < ApplicationController
   # DELETE /usuarios/1
   # DELETE /usuarios/1.json
   def destroy
-    @usuario.destroy
+    @usuario.status = false
     respond_to do |format|
-      format.html { redirect_to usuarios_url, notice: 'Usuario foi deletado com sucesso.' }
-      format.json { head :no_content }
+      if @usuario.save
+        format.html { redirect_to usuarios_url, notice: 'Usuario foi deletado com sucesso.' }
+        format.json { head :no_content }
+      else
+        format.html { render :index }
+        format.json { render json: @usuario.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   private
 
-  # def set_atributos
-  #   @usuario = Usuario.find(params[:id])
-  # end
+  def set_atributos
+    @usuario = Usuario.find(params[:id])
+    @endereco = @usuario.endereco
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_usuario
     @usuario = Usuario.find(params[:id])
