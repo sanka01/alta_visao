@@ -2,9 +2,16 @@
 
 
 .sidebar {
-  position: fixed;
-  width: 25%;
-  height: 100vh;
+  position: absolute;
+  display: grid;
+  height: fit-content;
+  @media only screen and (max-width: 800px) {
+    width: 40%;
+  }
+  @media only screen and (min-width: 800px) {
+    width: 25%;
+  }
+  //height: 100vh;
   background: $point-dark;
   font-size: 0.65em;
 
@@ -69,9 +76,16 @@
 
 .twitter {
   position: relative;
-  width: 80%;
-  float: right;
-  height: 100vh;
+  @media only screen and (min-width: 1000px) {
+    width: 60%;
+
+  }
+  @media only screen and (min-width: 1000px) {
+    width: 80%;
+    height: 100vh;
+    float: right;
+
+  }
 
   .container {
     display: flex;
@@ -79,6 +93,12 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    .content{
+     width: 100%;
+      .card{
+        width: 50%;
+      }
+    }
   }
 
   a {

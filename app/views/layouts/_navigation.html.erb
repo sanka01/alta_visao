@@ -1,5 +1,3 @@
-
-
 <aside class="sidebar">
   <div>
     <%= image_tag "LOGO.png", :class => "img-fluid  imagem" %>
@@ -19,6 +17,11 @@
         <%= link_to "cadastrar pessoa", new_usuario_path %>
       </li>
       <% if conta_signed_in? %>
+        <li class="
+            <% if current_page?(perfil_show_path) %> active
+            <% end %>">
+          <%= link_to "Perfil", perfil_show_path(usuario_id: current_conta.usuario_id), :class => "nav-link" %>
+        </li>
         <% if current_conta.is_admin? %>
 
           <li class="
@@ -36,6 +39,11 @@
             <% end %>">
             <%= link_to "Acesso administrativo", administrador_path, :class => "nav-link" %>
           </li>
+        <% end %>
+        <% if current_conta.is_franqueado? || (current_conta.is_admin? && current_conta.franquia.present?)%>
+          <li class="
+            <% if current_page?(franquia_path(current_conta.franquia)) %> active
+            <% end %>"><%= link_to "Minha Franquia", franquia_path(current_conta.franquia), :class => "nav-link" %></li>
         <% end %>
 
         <li>

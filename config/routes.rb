@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'perfil/show'
   # devise_for :contas
   devise_for :contas, path_names: {sign_in: 'entrar', sign_out: 'sair', password: 'secret', confirmation: 'verification', unlock: 'unblock', registration: 'registrar', sign_up: 'cadastrar'}
 

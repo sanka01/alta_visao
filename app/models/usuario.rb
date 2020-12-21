@@ -1,15 +1,11 @@
 class Usuario < ApplicationRecord
 
-  # validates :cpf_cnpj, presence: true, uniqueness: true
+  validates :cpf_cnpj, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   # validates :nome, presence: true, case_sensitive: false
   validates :indicacao, presence: true
 
-  enum tipo_usuario: {
-      administrator: 0,
-      pre_cadastro: 1,
-      cliente: 2,
-      empreendedor: 3
-  }
+
   has_one :endereco
   belongs_to :franquia
   has_one :cidade, through: :endereco
@@ -27,6 +23,10 @@ class Usuario < ApplicationRecord
     else
       "Dono da franquia"
     end
+  end
+
+  def indicados
+    Usuario.where(indicacao: self, status: true)
   end
 
 end

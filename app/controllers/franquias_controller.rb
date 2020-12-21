@@ -5,6 +5,9 @@ class FranquiasController < ApplicationController
   # GET /franquias
   # GET /franquias.json
   def index
+    if !current_conta.is_admin?
+      redirect_to root_path
+    end
     @franquias = Franquia.all
   end
 
@@ -26,7 +29,13 @@ class FranquiasController < ApplicationController
   # POST /franquias.json
   def create
     @franquia = Franquia.new(franquia_params)
-
+    conta = Conta.where(usuario_id: @franquia.dono).first
+    conta.franquia = @franquia
+    conta.nivel_permissao =  Conta.nivel_permissoes["franqueado"]
+    conta.save
+    usuario = Usuario.find @franquia.dono
+    usuario.franquia_id = 0
+    usuario.save
     respond_to do |format|
       if @franquia.save
         format.html { redirect_to @franquia, notice: 'Franquia foi criada com sucesso.' }

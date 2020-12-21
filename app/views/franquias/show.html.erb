@@ -1,5 +1,4 @@
-<div class="row">
-
+<div class="container-fluid container ">
   <div class="card col-md-12">
     <div class="card-body">
       <div class="row">
@@ -22,28 +21,31 @@
 
     </div>
   </div>
-</div>
+  <% if @franquia.usuarios.size > 0 %>
+    <div class="col-md-12">
+      <table>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Indicado Por</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
 
-<table>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Nome</th>
-    <th>Indicado Por</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @franquia.usuarios.order("id asc").each do |usuario| %>
-    <tr>
-      <td><%= usuario.id %></td>
-      <td><%= usuario %></td>
-      <td><%= usuario.indicado_por %></td>
-      <td><%= link_to t(:show), usuario, :class => "btn btn-info" %></td>
-      <td><%= link_to t(:edit), edit_usuario_path(usuario), :class => "btn btn-warning" %></td>
-      <td><%= link_to t(:destroy), usuario, method: :delete, data: {confirm: t(:confirm_delete)}, :class => "btn btn-danger" %></td>
-    </tr>
+        <tbody>
+        <% @franquia.usuarios.order("id asc").each do |usuario| %>
+          <tr>
+            <td><%= usuario.id %></td>
+            <td><%= usuario %></td>
+            <td><%= usuario.indicado_por %></td>
+            <td><%= link_to t(:show), usuario, :class => "btn btn-info" %></td>
+            <td><%= link_to t(:edit), edit_usuario_path(usuario), :class => "btn btn-warning" %></td>
+            <td><%= link_to t(:destroy), usuario, method: :delete, data: { confirm: t(:confirm_delete) }, :class => "btn btn-danger" %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   <% end %>
-  </tbody>
-</table>
+</div>

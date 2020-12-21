@@ -8,8 +8,17 @@ class Conta < ApplicationRecord
   belongs_to :oficina, optional: true
   belongs_to :franquia, optional: true
 
+  enum nivel_permissao: {
+    administrator: 0,
+    cliente: 1,
+    franqueado: 2,
+  }
+
   def is_admin?
-    self.nivel_permissao == 0
+    self.nivel_permissao == "administrator"
+  end
+  def is_franqueado?
+    self.nivel_permissao == "franqueado"
   end
   private
   def default_values

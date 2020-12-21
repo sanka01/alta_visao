@@ -19,6 +19,7 @@
 @import "components/table";
 @import "components/card";
 @import "components/toast";
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -50,22 +51,28 @@ body {
   justify-content: center;
 }
 
-.btn-info{
+.btn-info {
   color: aliceblue !important;
 }
 
-.imagem{
+.imagem {
   height: 100%;
   width: 100%;
-  margin-bottom: -20em;
-  margin-top: -5em;
 }
 
-.breadcrumb{
+.img-full {
+  width: 120% !important;
+  margin-left: -8vh !important;
+  height: 100% !important;
+}
+
+.breadcrumb {
   background: transparent;
-  .breadcrumb-item{
+
+  .breadcrumb-item {
     color: $point2-light;
-    a{
+
+    a {
       color: $point2-dark;
     }
   }

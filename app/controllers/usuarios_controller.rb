@@ -46,19 +46,24 @@ class UsuariosController < ApplicationController
     estado = Estado.find_by_sigla params[:usuario][:estado]
     cidade.estado = estado
     endereco.usuario = @usuario
-    Usuario.transaction do
-      isAllSave = @usuario.save
-      isAllSave = isAllSave ? cidade.save : false
-      endereco.cidade = cidade
-      isAllSave = isAllSave ? endereco.save : false
-    end
+
+    conta = Conta.new(nome: @usuario.email, nivel_permissao: 1, password: @usuario.cpf_cnpj)
+    # Usuario.transaction do
+    isAllSave = @usuario.save
+    isAllSave = isAllSave ? cidade.save : false
+    conta.usuario = @usuario
+    conta.email = @usuario.email
+    isAllSave = isAllSave ? conta.save! : false
+    endereco.cidade = cidade
+    isAllSave = isAllSave ? endereco.save : false
+    # end
     respond_to do |format|
       if isAllSave
         format.html { redirect_to @usuario, notice: 'Usuario foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @usuario }
       else
         format.html { render :new }
-        format.json { render :json => @usuario.errors, status: :unprocessable_entity }
+        format.json { render :json => @usuario.errors, status: :unprocessable_entity, notice: @usuario.errors }
       end
     end
   end
