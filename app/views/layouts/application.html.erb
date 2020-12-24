@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:title) ? yield(:title) : "Auto Visão" %></title>
-  <%= favicon_link_tag "logo.png"  %>
+  <%= favicon_link_tag "logo.png" %>
   <meta name="description" content="">
   <meta name="author" content="Samuel S Morais">
   <script src="https://kit.fontawesome.com/d19e17e928.js" crossorigin="anonymous"></script>
@@ -19,18 +19,23 @@
 
 <section class="twitter">
   <%= render 'layouts/messages' %>
+  <% if current_page?(root_path) %>
+    <%= link_to(image_tag("banner_inicial_3.jpg", :class => "img-full"), new_usuario_path) %>
+  <% else %>
+    <div class="container">
 
-  <div class="container">
-
-    <div class="content">
+      <div class="content">
 
 
-      <%= yield %>
+        <%= yield %>
 
-      <footer>
-      </footer>
-    </div>
-  </div> <!--! end of .container -->
+
+      </div>
+    </div> <!--! end of .container -->
+  <% end %>
+  <footer>
+    <p>Problemas, Duvidas ou Sugestões? envie um email para altavisaom@gmail.com</p>
+  </footer>
 </section>
 
 
