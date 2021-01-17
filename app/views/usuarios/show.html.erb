@@ -18,6 +18,13 @@
             <%= @usuario.rg %>
           </p>
         </div>
+                <div class="col-md-6">
+
+          <p>
+            <strong>ID:</strong>
+            <%= @usuario.id %>
+          </p>
+        </div>
         <div class="col-md-6">
 
           <p>
@@ -94,6 +101,13 @@
           </p>
         </div>
 
+        <div class="col-md-6">
+
+          <p>
+            <strong>Pagamento confirmado:</strong>
+            <%= @usuario.ativo ? "Sim" : "Não" %>
+          </p>
+        </div>
         <div class="col-md-12 linha-final">
           <%= link_to "Novo Veiculo", new_veiculo_path(@veiculo, id: @usuario.id), {:class => "btn btn-success"} %>
 
